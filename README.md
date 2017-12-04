@@ -1,27 +1,40 @@
-# Frontend
+# Foodtender 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.
+## Error Handling View
+- 404 & 500 
 
-## Development server
+## Signup View, Login View and Logout
+- Signup
+- Login 
+- Logout
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Home View
+- Search all recipes
+- Search recipies that include all my ingredients
+- Filter by time
+- Uncheck “basic ingredients”
 
-## Code scaffolding
+## Recipes Views
+- Uncheck selected ingredients
+- Add unselected ingredients
+- Diffculty & Rating filters (Nice to have)
+- See the whole list of matched recipes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Whole Recipe View
+- See the whole recipe
+- Multiply the servings (Nice to have)
+- Rate the recipe (Nice to have & If logged in)
 
-## Build
+## Bookmarks View
+- See Bookmarks
+- Add & remove bookmarks (If logged in)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Bookmarks View > Whole Recipe View
+- See the whole bookmarked recipe
 
-## Running unit tests
+## Profile View
+- See my profle
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Profile Editing View
+- Edit my profle
