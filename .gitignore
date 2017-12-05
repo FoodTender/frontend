@@ -40,3 +40,36 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+# artefacts
+.eslintcache
+.npm
+.nyc_output
+*.log
+logs/
+node_modules/
+coverage/
+build/
+dist/
+
+# ide
+.bak
+*.swp
+*~
+*#
+
+# spam
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+
+# dotenv
+.env
+.DS_Store
