@@ -1,4 +1,4 @@
 <p>
   ingredients-searcher works!
 </p>
-<input type="text" [(ngModel)]="ingredientValue" (keyup)="findIngredient()" name="ingredient">
+<input type="text" [(ngModel)]="ingredientValue" (keyup)="findIngredient()" name="ingredient"> {{ingredients | json}}

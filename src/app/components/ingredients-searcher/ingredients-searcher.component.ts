@@ -17,11 +17,10 @@ export class IngredientsSearcherComponent implements OnInit {
   ngOnInit() { }
 
   findIngredient() {
-    this.ingredient.emit(this.ingredientValue);
-    this.ingredientService.getIngredients()
+    // this.ingredient.emit(this.ingredientValue);
+    this.ingredientService.getIngredients(this.ingredientValue)
       .subscribe((ingredients) => this.ingredients = ingredients);
-    console.log(this.ingredientValue);
-    console.log(this.ingredients);
+    // console.log(this.ingredients);
   }
 
 }
