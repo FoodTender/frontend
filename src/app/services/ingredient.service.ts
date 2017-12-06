@@ -9,8 +9,8 @@ export class IngredientService {
 
   constructor(private http: Http) { }
 
-  getIngredients() {
-    return this.http.get(`${this.baseUrl}/ingredients`)
+  getIngredients(ingredient) {
+    return this.http.get(`${this.baseUrl}/ingredients?terms=${ingredient}`)
       .map((res: Response) => res.json());
   }
 

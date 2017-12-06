@@ -17,7 +17,7 @@ import { IngredientService } from './services/ingredient.service';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'ingredients', component: IngredientsListComponent },
+  // { path: 'ingredients', component: IngredientsListComponent },
 ];
 
 @NgModule({
