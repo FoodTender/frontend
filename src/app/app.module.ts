@@ -33,7 +33,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     MaterializeModule
-
   ],
   providers: [
     IngredientService
