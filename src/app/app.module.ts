@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { MaterializeModule } from 'angular2-materialize';
+import { RouterLink } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
@@ -32,7 +33,8 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    MaterializeModule
+    MaterializeModule,
+    RouterModule
   ],
   providers: [
     IngredientService

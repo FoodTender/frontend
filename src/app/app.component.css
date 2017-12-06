@@ -1,0 +1,33 @@
+.nav-bar {
+    background-color: #ff1744;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+
+.auth-nav{
+    font-family: 'Comfortaa';
+    color: white;
+}
+
+
+.login{
+    margin-right: 30px;
+}
+
+
+.logo {
+    height: 30px;
+}
+
+
+@media (orientation: landscape){
+    .nav-bar {
+        justify-content: space-between;
+    }
+}
