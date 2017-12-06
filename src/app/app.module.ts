@@ -9,19 +9,23 @@ import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
+import { IngredientsSearcherComponent } from './components/ingredients-searcher/ingredients-searcher.component';
+import { IngredientsListComponent } from './components/ingredients-list/ingredients-list.component';
 
 import { IngredientService } from './services/ingredient.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  // { path: 'journal/:id', component: JournalDetailComponent },
+  { path: 'ingredients', component: IngredientsListComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    IngredientsSearcherComponent,
+    IngredientsListComponent
   ],
   imports: [
     BrowserModule,
