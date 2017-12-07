@@ -1,4 +1,11 @@
 <p>
   ingredients-searcher works!
 </p>
-<input type="text" [(ngModel)]="ingredientValue" (keyup)="findIngredient()" name="ingredient"> {{ingredients | json}}
+
+<input type="text" [(ngModel)]="ingredientValue" (keyup)="findIngredient()" name="ingredient">
+
+<div *ngIf="ingredients !== null">
+  <ul>
+    <li *ngFor="let ingredient of ingredients">{{ ingredient.name }}</li>
+  </ul>
+</div>
