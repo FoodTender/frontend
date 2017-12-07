@@ -13,9 +13,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private ingredientService: IngredientService) { }
 
-  ngKeypress() {
-    this.ingredientService.getIngredients()
-      .subscribe((ingredients) => this.ingredients = ingredients);
+
+  findIngredient(userIngredient) {
+
   }
 
   ngOnInit() { }
