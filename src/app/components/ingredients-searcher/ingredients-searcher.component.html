@@ -1,4 +1,18 @@
 <p>
   ingredients-searcher works!
 </p>
-<input type="text" [(ngModel)]="ingredientValue" (keyup)="findIngredient()" name="ingredient"> {{ingredients | json}}
+
+<input type="text" [(ngModel)]="ingredientValue" (keyup)="findIngredient()" name="ingredient">
+
+<!-- Show autocompleted ingredients -->
+<ul>
+  <li *ngFor="let ingredient of ingredients" (click)="addIngredientToSearcher(ingredient)" class="cursor-pointer">
+    {{ ingredient.name }}
+  </li>
+</ul>
+
+<!-- List of selected ingredients -->
+{{ ingredientsSelected }}
+<div *ngFor="let ingredient of ingredientsSelected">
+  {{ ingredient.name }}
+</div>
