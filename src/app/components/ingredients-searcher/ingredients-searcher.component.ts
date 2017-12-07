@@ -8,19 +8,23 @@ import { IngredientService } from '../../services/ingredient.service';
 })
 export class IngredientsSearcherComponent implements OnInit {
   @Output() ingredient = new EventEmitter<string>();
+
   ingredientValue: string;
   ingredients = null;
-
+  ingredientsSelected: string[] = [];
 
   constructor(private ingredientService: IngredientService) { }
 
   ngOnInit() { }
 
   findIngredient() {
-    // this.ingredient.emit(this.ingredientValue);
     this.ingredientService.getIngredients(this.ingredientValue)
       .subscribe((ingredients) => this.ingredients = ingredients);
-    // console.log(this.ingredients);
+  }
+
+  addIngredientToSearcher(ingredient) {
+    console.log('asdfasdf');
+    this.ingredientsSelected.push(ingredient);
   }
 
 }

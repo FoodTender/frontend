@@ -4,8 +4,15 @@
 
 <input type="text" [(ngModel)]="ingredientValue" (keyup)="findIngredient()" name="ingredient">
 
-<div *ngIf="ingredients !== null">
-  <ul>
-    <li *ngFor="let ingredient of ingredients">{{ ingredient.name }}</li>
-  </ul>
+<!-- Show autocompleted ingredients -->
+<ul>
+  <li *ngFor="let ingredient of ingredients" (click)="addIngredientToSearcher(ingredient)" class="cursor-pointer">
+    {{ ingredient.name }}
+  </li>
+</ul>
+
+<!-- List of selected ingredients -->
+{{ ingredientsSelected }}
+<div *ngFor="let ingredient of ingredientsSelected">
+  {{ ingredient.name }}
 </div>
