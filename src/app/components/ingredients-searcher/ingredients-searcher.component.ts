@@ -23,8 +23,9 @@ export class IngredientsSearcherComponent implements OnInit {
   }
 
   addIngredientToSearcher(ingredient) {
-    console.log('asdfasdf');
-    this.ingredientsSelected.push(ingredient);
+    if (this.ingredientsSelected.indexOf(ingredient) < 0) {
+      this.ingredientsSelected.push(ingredient);
+    }
   }
 
 }
