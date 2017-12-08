@@ -12,6 +12,7 @@ export class IngredientsSearcherComponent implements OnInit {
   ingredientValue: string;
   ingredients = null;
   ingredientsSelected: string[] = [];
+  recipes = null;
 
   constructor(private ingredientService: IngredientService) { }
 
@@ -30,6 +31,11 @@ export class IngredientsSearcherComponent implements OnInit {
     if (this.ingredientsSelected.indexOf(ingredient) < 0) {
       this.ingredientsSelected.push(ingredient);
     }
+  }
+
+  searchRecipes(ingredientsSelected) {
+    this.ingredientService.getRecipes(this.ingredientsSelected)
+      .subscribe((recipes) => this.recipes = recipes);
   }
 
 }

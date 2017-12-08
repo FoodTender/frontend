@@ -22,6 +22,7 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthLoginComponent } from './components/auth-login/auth-login.component';
 import { AuthSignupComponent } from './components/auth-signup/auth-signup.component';
+import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -40,7 +41,8 @@ const routes: Routes = [
     SignupPageComponent,
     LoginPageComponent,
     AuthLoginComponent,
-    AuthSignupComponent
+    AuthSignupComponent,
+    RecipesListComponent
   ],
   imports: [
     BrowserModule,
