@@ -19,8 +19,9 @@
 }
 
 
-.logo {
+.navbar-logo {
     height: 30px;
+    display: flex;
 }
 
 

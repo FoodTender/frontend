@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IngredientService } from '../../services/ingredient.service';
-
+declare var $: any;
 
 
 @Component({
@@ -19,6 +19,11 @@ export class HomeComponent implements OnInit {
 
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    $('.carousel.carousel-slider').carousel({fullWidth: true});
+    $('.btn').on('click touchstart', e => {
+      console.log('working');
+    });
+  }
 
 }

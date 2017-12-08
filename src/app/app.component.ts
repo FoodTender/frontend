@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
     });
   }
 
+
   login() {
     this.router.navigate(['/auth/login']);
   }

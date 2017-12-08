@@ -1,19 +1,21 @@
+
 <div class="carousel carousel-slider center" data-indicators="true">
-        <div class="carousel-fixed-item center">
-          <a [routerLink]="['/auth/login']" class="btn waves-effect white grey-text darken-text-2">Log In</a>
-          <a [routerLink]="['/auth/signup']" class="btn waves-effect white grey-text darken-text-2">Sign Up</a>
-        </div>
+    <div class="carousel-item">
+         <img src="/assets/images/food-background-1.jpg">
+     </div>
 
-        <div class="carousel-item red white-text">
-            <img src="/assets/images/food-background-1.jpg">
-        </div>
+     <div class="carousel-item">
+           <img src="/assets/images/food-background-2.jpg">
+    </div>
 
-        <div class="carousel-item amber white-text">
-            <img src="/assets/images/food-background-2.jpg">
-        </div>
-
-        <div class="carousel-item green white-text">
-            <img src="/assets/images/food-background-3.jpg">
-        </div>
+      <div class="carousel-item">
+          <img src="/assets/images/food-background-3.jpg">
+      </div>
 </div>
+
+<div class="my-own-buttons">
+        <a [routerLink]="['/auth/login']" class="btn waves-effect white grey-text darken-text-2 button-custom-1">Log In</a>
+        <a [routerLink]="['/auth/signup']" class="btn waves-effect white grey-text darken-text-2 button-custom-2">Sign Up</a>
+</div>
+
 <app-ingredients-searcher></app-ingredients-searcher>
