@@ -1,7 +1,7 @@
 <div class="row">
-  <!-- <div class="input-field col s12 m4">
-    <select>
-      <option value="" disabled selecte>How many time do you have?</option>
+  <!-- <div class="input-field col s12 m4"> -->
+    <select id="time-drop-down" class="col s12 m4 offset-m4">
+      <option value="" disabled selected>How much time do you have?</option>
       <option value="5">5min</option>
       <option value="15">15min</option>
       <option value="30">30min</option>
@@ -12,18 +12,14 @@
       <option value="150">2h 30min</option>
       <option value="180">3h</option>
     </select>
-    <label>Cooking time</label>
-  </div> -->
-  <div class="col s12 m4">
-    <input type="text" placeholder="How many time do you have?">
-  </div>
+    <!-- </div> -->
 </div>
 
 <div class="row">
   <div class="col s12">
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">textsms</i>
+        <i class="material-icons prefix">restaurant</i>
         <input type="text" [(ngModel)]="ingredientValue" id="autocomplete-input" class="autocomplete" (keyup)="findIngredient()"
           name="ingredient">
         <label for="autocomplete-input">Write your ingredients</label>
@@ -45,4 +41,4 @@
   {{ ingredient.name }}
 </div>
 
-<a class="btn-floating btn-large waves-effect waves-light red" (click)="searchRecipes(ingredientsSelected)"><i class="material-icons">add</i></a>
+<a class="btn-floating btn-large waves-effect waves-light teal" (click)="searchRecipes(ingredientsSelected)"><i class="material-icons prefix">check</i></a>
