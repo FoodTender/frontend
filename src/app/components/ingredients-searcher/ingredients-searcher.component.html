@@ -1,5 +1,4 @@
 <div class="row">
-  <!-- <div class="input-field col s12 m4"> -->
     <select id="time-drop-down" class="col s12 m4 offset-m4">
       <option value="" disabled selected>How much time do you have?</option>
       <option value="5">5min</option>
@@ -12,7 +11,6 @@
       <option value="150">2h 30min</option>
       <option value="180">3h</option>
     </select>
-    <!-- </div> -->
 </div>
 
 <div class="row">
@@ -22,7 +20,7 @@
         <i class="material-icons prefix">restaurant</i>
         <input type="text" [(ngModel)]="ingredientValue" id="autocomplete-input" class="autocomplete" (keyup)="findIngredient()"
           name="ingredient">
-        <label for="autocomplete-input">Write your ingredients</label>
+        <label for="autocomplete-input">Your fridge ingredients here</label>
       </div>
     </div>
   </div>

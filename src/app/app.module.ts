@@ -26,7 +26,7 @@ import { RecipesListComponent } from './components/recipes-list/recipes-list.com
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent},
   { path: 'auth/signup', component: AuthSignupComponent },
   { path: 'auth/login', component: AuthLoginComponent }
   // { path: 'ingredients', component: IngredientsListComponent },
