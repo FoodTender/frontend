@@ -9,7 +9,7 @@ const baseUrl = environment.apiUrl + '/ingredients';
 
 @Injectable()
 export class IngredientService {
-  
+
 
   constructor(private http: Http) { }
 

@@ -20,6 +20,10 @@ export class IngredientsSearcherComponent implements OnInit {
   findIngredient() {
     this.ingredientService.getIngredients(this.ingredientValue)
       .subscribe((ingredients) => this.ingredients = ingredients);
+    // const autocompleteInput = document.getElementById('autocomplete-input');
+    // autocompleteInput.autocomplete({
+    //   data: this.ingredients,
+    // });
   }
 
   addIngredientToSearcher(ingredient) {

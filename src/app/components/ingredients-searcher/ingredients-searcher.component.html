@@ -1,8 +1,36 @@
-<p>
-  ingredients-searcher works!
-</p>
+<div class="row">
+  <!-- <div class="input-field col s12 m4">
+    <select>
+      <option value="" disabled selecte>How many time do you have?</option>
+      <option value="5">5min</option>
+      <option value="15">15min</option>
+      <option value="30">30min</option>
+      <option value="45">45min</option>
+      <option value="60">1 h</option>
+      <option value="90">1h 30min</option>
+      <option value="120">2h</option>
+      <option value="150">2h 30min</option>
+      <option value="180">3h</option>
+    </select>
+    <label>Cooking time</label>
+  </div> -->
+  <div class="col s12 m4">
+    <input type="text" placeholder="How many time do you have?">
+  </div>
+</div>
 
-<input type="text" [(ngModel)]="ingredientValue" (keyup)="findIngredient()" name="ingredient">
+<div class="row">
+  <div class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">textsms</i>
+        <input type="text" [(ngModel)]="ingredientValue" id="autocomplete-input" class="autocomplete" (keyup)="findIngredient()"
+          name="ingredient">
+        <label for="autocomplete-input">Write your ingredients</label>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Show autocompleted ingredients -->
 <ul>
