@@ -44,3 +44,5 @@
 <div *ngFor="let ingredient of ingredientsSelected">
   {{ ingredient.name }}
 </div>
+
+<a class="btn-floating btn-large waves-effect waves-light red" (click)="searchRecipes(ingredientsSelected)"><i class="material-icons">add</i></a>
