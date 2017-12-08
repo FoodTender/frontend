@@ -18,8 +18,8 @@ export class IngredientService {
   }
 
   getRecipes(ingredients) {
-    const ingredientsUrl = this.parseListIngredientsToUrl(ingredients);
-    return this.http.get(`${baseUrl}/recipes/?ingredients=${ingredientsUrl}`)
+    const ingredientsString = this.parseListIngredientsToUrl(ingredients);
+    return this.http.get(`${baseUrl}/recipes/?ingredients=${ingredientsString}`)
       .map((res: Response) => res.json());
   }
 
