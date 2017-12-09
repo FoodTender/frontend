@@ -14,10 +14,22 @@ import { IngredientsSearcherComponent } from './components/ingredients-searcher/
 import { IngredientsListComponent } from './components/ingredients-list/ingredients-list.component';
 
 import { IngredientService } from './services/ingredient.service';
+import { AuthService } from './services/auth.service';
+
+import { RequireAuthGuard } from './guards/require-auth.guard';
+
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { AuthLoginComponent } from './components/auth-login/auth-login.component';
+import { AuthSignupComponent } from './components/auth-signup/auth-signup.component';
+import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'auth/signup', component: AuthSignupComponent },
+  { path: 'auth/login', component: AuthLoginComponent },
+  { path: 'recipes/list', component: RecipesListComponent }
   // { path: 'ingredients', component: IngredientsListComponent },
 ];
 
@@ -26,7 +38,12 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     IngredientsSearcherComponent,
-    IngredientsListComponent
+    IngredientsListComponent,
+    SignupPageComponent,
+    LoginPageComponent,
+    AuthLoginComponent,
+    AuthSignupComponent,
+    RecipesListComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +54,9 @@ const routes: Routes = [
     RouterModule
   ],
   providers: [
-    IngredientService
+    IngredientService,
+    AuthService,
+    RequireAuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 .nav-bar {
-    background-color: #ff1744;
+   
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -7,8 +7,6 @@
     padding-left: 30px;
     padding-right: 30px;
 }
-
-
 
 .auth-nav{
     font-family: 'Comfortaa';
@@ -21,13 +19,14 @@
 }
 
 
-.logo {
+.navbar-logo {
     height: 30px;
+    display: flex;
 }
 
 
 @media (orientation: landscape){
-    .nav-bar {
+    /* .nav-bar {
         justify-content: space-between;
-    }
+    } */
 }

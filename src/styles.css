@@ -4,8 +4,15 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    width: 100%;
+    height: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
   }
   
   *:before, *, *:after {
@@ -17,3 +24,29 @@ html {
   /*div{
     border: 1px solid black;
   }*/
+
+
+
+  .foodtender-red-background{
+    color: #ff1744;
+  }
+
+  .foodtender-green-background{
+    color: #009688;
+  }
+
+  .comfortaa{
+    font-family: 'Comfortaa';
+  }
+
+  .d-flex{
+    display: flex;
+  }
+
+
+  .our-own-container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+

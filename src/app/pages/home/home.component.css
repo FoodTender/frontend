@@ -1,0 +1,25 @@
+.my-own-buttons{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    height: 100%;
+    top: 27%;
+}
+
+.button-custom-1{
+    margin-right: 5px;
+}
+
+.button-custom-2{
+    margin-left: 5px;
+}
+
+
+@media (orientation: landscape){
+    .my-own-buttons{
+        top: 90%;
+        
+    }
+}
