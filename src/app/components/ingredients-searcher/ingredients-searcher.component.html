@@ -1,58 +1,53 @@
 <div class="ingredients-pick-desktop ingredients-pick-mobile">
   <div class="chosing-ingredients">
     <div class="row ingredients-searcher-component">
-        <select id="time-drop-down">
-          <option value="" disabled selected>How much time do you have?</option>
-          <option value="5">5min</option>
-          <option value="15">15min</option>
-          <option value="30">30min</option>
-          <option value="45">45min</option>
-          <option value="60">1 h</option>
-          <option value="90">1h 30min</option>
-          <option value="120">2h</option>
-          <option value="150">2h 30min</option>
-          <option value="180">3h</option>
-        </select>
+      <select id="time-drop-down">
+        <option value="" disabled selected>How much time do you have?</option>
+        <option value="5">5 min</option>
+        <option value="15">15 min</option>
+        <option value="30">30 min</option>
+        <option value="45">45 min</option>
+        <option value="60">1h</option>
+        <option value="90">1h 30 min</option>
+        <option value="120">2h</option>
+        <option value="150">2h 30 min</option>
+        <option value="180">3h</option>
+      </select>
     </div>
 
+    <!-- Show autocompleted ingredients -->
     <div class="row">
       <div class="col s12">
         <div class="row">
           <div class="input-field">
             <i class="material-icons prefix">restaurant</i>
-            <input type="text" [(ngModel)]="ingredientValue" id="autocomplete-input" class="autocomplete" 
-            (keyup)="findIngredient()" name="ingredient">
+            <input type="text" [(ngModel)]="ingredientValue" id="autocomplete-input" class="autocomplete" (keyup)="findIngredient()"
+              name="ingredient">
             <label for="autocomplete-input">Your fridge ingredients here</label>
-            <!-- {{ ingredientsSelected }} -->
           </div>
         </div>
       </div>
     </div>
 
-  
+    <!-- <div class="ingredients-chosen">
+      <ul>
+        <li *ngFor="let ingredient of ingredients" (click)="addIngredientToSearcher(ingredient)" class="cursor-pointer">
+        </li>
+      </ul>
+    </div> -->
 
-
-
-  <!-- Show autocompleted ingredients -->
-  <div class="ingredients-chosen">
-    <ul>
-      <li *ngFor="let ingredient of ingredients" (click)="addIngredientToSearcher(ingredient)" class="cursor-pointer">
-      </li>
-    </ul>
-  </div>
     <!-- List of selected ingredients -->
-
-    
-
-    
-    <div *ngFor="let ingredient of ingredientsSelected">
-        <div class="chip">
-            {{ ingredient.name }}
-            <i class="close material-icons">close</i>
-          </div>
+    <div *ngFor="let ingredient of ingredientsSelected" class="ingredients-chosen chips">
+      <div class="chip">
+        {{ ingredient }}
+        <i class="close material-icons">close</i>
+      </div>
     </div>
+
+    <!-- Search recipes button -->
     <a class="btn-floating btn-large waves-effect waves-light teal" (click)="searchRecipes(ingredientsSelected)">
-        <i class="material-icons prefix">check</i></a>
+      <i class="material-icons prefix">check</i>
+    </a>
+
   </div>
 </div>
-

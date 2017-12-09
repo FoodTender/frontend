@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IngredientService } from '../../services/ingredient.service';
-import { Router } from '@angular/router/src/router';
-import { RouterLink } from '@angular/router';
+// import { Router } from '@angular/router/src/router';
+// import { RouterLink } from '@angular/router';
 
 
 
@@ -15,8 +15,7 @@ export class RecipesListComponent implements OnInit {
   ingredientsSelected: string[];
 
   constructor(
-    private ingredientService: IngredientService,
-    private router: Router) { }
+    private ingredientService: IngredientService) { }
 
   ngOnInit() { }
 
@@ -24,7 +23,6 @@ export class RecipesListComponent implements OnInit {
     this.ingredientService.getRecipes(this.ingredientsSelected)
       .subscribe((recipes) => {
         this.recipes = recipes;
-
       });
   }
 
