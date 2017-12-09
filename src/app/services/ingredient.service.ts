@@ -24,19 +24,25 @@ export class IngredientService {
   }
 
   parseListIngredientsToUrl(ingredients) {
+    console.log(ingredients);
     let ingredientsUrl = '';
+
     const concat = ingredients.length > 1 ? true : false;
 
-    ingredients.forEach(ingredient => {
-      ingredient = ingredient.name.replace(/ /g, '_'); // Replace white spaces to '_'
-      ingredientsUrl += ingredient;
-      if (concat) {
-        ingredientsUrl += ',';
-      }
-    });
-    if (concat) {
-      ingredientsUrl = ingredientsUrl.slice(0, -1); // Delete last ','
-    }
+    const ingredientsStr = ingredients.join(',');
+    console.log(ingredientsStr);
+    ingredientsUrl += ingredientsStr;
+
+    // ingredients.forEach(ingredient => {
+    // ingredient = ingredient.name.replace(/ /g, '_'); // Replace white spaces to '_'
+    // ingredientsUrl += ingredient;
+    // if (concat) {
+    //   ingredientsUrl += ',';
+    // }
+    // });
+    // if (concat) {
+    //   ingredientsUrl = ingredientsUrl.slice(0, -1); // Delete last ','
+    // }
 
     console.log(ingredientsUrl);
 

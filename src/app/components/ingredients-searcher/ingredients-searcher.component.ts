@@ -21,12 +21,6 @@ export class IngredientsSearcherComponent implements OnInit {
     $('.chips').material_chip();
   }
 
-  addIngredientToSearcher(ingredient) {
-    if (this.ingredientsSelected.indexOf(ingredient) < 0) { // If not already selected
-      this.ingredientsSelected.push(ingredient);
-    }
-  }
-
   findIngredient() {
     this.ingredientService.getIngredients(this.ingredientValue)
       .subscribe((ingredients) => {
@@ -38,6 +32,8 @@ export class IngredientsSearcherComponent implements OnInit {
           ingredients.forEach(ingredient => {
             data[ingredient.name] = null;
           });
+
+          // Display matching ingredients on autocomplete
           $('input.autocomplete').autocomplete({
             data: data,
             onAutocomplete:
@@ -51,7 +47,11 @@ export class IngredientsSearcherComponent implements OnInit {
       });
   }
 
-
+  addIngredientToSearcher(ingredient) {
+    if (this.ingredientsSelected.indexOf(ingredient) < 0) { // If not already selected
+      this.ingredientsSelected.push(ingredient);
+    }
+  }
 
   searchRecipes(ingredientsSelected) {
     this.ingredientService.getRecipes(this.ingredientsSelected)
