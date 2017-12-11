@@ -9,9 +9,18 @@ import { RouterLink } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
+
 import { HomeComponent } from './pages/home/home.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { DisplayRecipesComponent } from './pages/display-recipes/display-recipes.component';
+
+
 import { IngredientsSearcherComponent } from './components/ingredients-searcher/ingredients-searcher.component';
 import { IngredientsListComponent } from './components/ingredients-list/ingredients-list.component';
+import { AuthLoginComponent } from './components/auth-login/auth-login.component';
+import { AuthSignupComponent } from './components/auth-signup/auth-signup.component';
+import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 
 import { IngredientService } from './services/ingredient.service';
 import { RecipeService } from './services/recipe.service';
@@ -19,11 +28,6 @@ import { AuthService } from './services/auth.service';
 
 import { RequireAuthGuard } from './guards/require-auth.guard';
 
-import { SignupPageComponent } from './pages/signup-page/signup-page.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { AuthLoginComponent } from './components/auth-login/auth-login.component';
-import { AuthSignupComponent } from './components/auth-signup/auth-signup.component';
-import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -43,7 +47,8 @@ const routes: Routes = [
     LoginPageComponent,
     AuthLoginComponent,
     AuthSignupComponent,
-    RecipesListComponent
+    RecipesListComponent,
+    DisplayRecipesComponent
   ],
   imports: [
     BrowserModule,
