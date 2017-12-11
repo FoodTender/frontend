@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IngredientService } from '../../services/ingredient.service';
+import { RecipeService } from '../../services/recipe.service';
+
 declare var $: any;
 @Component({
   selector: 'app-ingredients-searcher',
@@ -14,7 +16,10 @@ export class IngredientsSearcherComponent implements OnInit {
   ingredientsSelected: string[] = [];
   recipes = null;
 
-  constructor(private ingredientService: IngredientService) { }
+  constructor(
+    private ingredientService: IngredientService,
+    private recipeService: RecipeService
+  ) { }
 
   ngOnInit() {
     $('#time-drop-down').material_select();
@@ -55,7 +60,14 @@ export class IngredientsSearcherComponent implements OnInit {
 
   searchRecipes(ingredientsSelected) {
     this.ingredientService.getRecipes(this.ingredientsSelected)
-      .subscribe((recipes) => this.recipes = recipes);
+      .subscribe((recipes) => {
+        this.recipes = recipes;
+      });
   }
+
+  // searchRecipes(ingredientsSelected) {
+  //   this.ingredientService.getRecipes(this.ingredientsSelected)
+  //     .subscribe((recipes) => this.recipes = recipes);
+  // }
 
 }
