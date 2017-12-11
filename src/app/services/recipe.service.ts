@@ -17,5 +17,4 @@ export class RecipeService {
       .map((res: Response) => res.json());
   }
 
-
 }
