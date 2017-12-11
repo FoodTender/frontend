@@ -18,11 +18,11 @@ export class RecipesListComponent implements OnInit {
 
   ngOnInit() { }
 
-  searchRecipes() {
-    this.recipeService.getRecipes()
-      .subscribe((recipes) => {
-        this.recipes = recipes;
-      });
-  }
+  // searchRecipes() {
+  //   this.recipeService.getRecipes()
+  //     .subscribe((recipes) => {
+  //       this.recipes = recipes;
+  //     });
+  // }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-recipes',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayRecipesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.sub = this.route
+      .queryParams
+      .subscribe(params => {
+        this.page = +params['page'] || 0;
+      });
   }
 
 }

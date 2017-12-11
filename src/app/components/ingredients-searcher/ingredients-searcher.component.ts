@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 import { IngredientService } from '../../services/ingredient.service';
 import { RecipeService } from '../../services/recipe.service';
-
-import { environment } from '../../../environments/environment';
-
 
 declare var $: any;
 @Component({
@@ -17,7 +17,6 @@ export class IngredientsSearcherComponent implements OnInit {
   ingredientValue: string; // User value on autocomplete
   ingredients = null;
   ingredientsSelected: string[] = [];
-  baseUrl = environment.apiUrl;
 
   // basics = [{}];
 
@@ -25,7 +24,8 @@ export class IngredientsSearcherComponent implements OnInit {
 
   constructor(
     private ingredientService: IngredientService,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -100,7 +100,7 @@ export class IngredientsSearcherComponent implements OnInit {
     const ingredientsStr = ingredients.join(',');
     ingredientsUrl += ingredientsStr;
     console.log('Url: ' + ingredientsUrl);
-    return `${this.baseUrl}/recipes/?ingredients=${ingredientsUrl}`;
+    this.router.navigate(['/recipes'], { queryParams: { ingredients: ingredientsUrl } });
   }
 
   addIngredientToSearcher(ingredient) {
