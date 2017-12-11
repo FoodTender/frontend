@@ -40,9 +40,11 @@
     </div>
 
     <!-- Search recipes button -->
-    <a class="btn-floating btn-large waves-effect waves-light teal" (click)="searchRecipes(ingredientsSelected)">
+    <a [routerLink]="['/recipes']" class="btn-floating btn-large waves-effect waves-light teal" (click)="searchRecipes(ingredientsSelected)">
       <i class="material-icons prefix">check</i>
     </a>
+
+    {{ recipes | json }}
 
   </div>
 </div>

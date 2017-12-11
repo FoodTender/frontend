@@ -14,6 +14,7 @@ import { IngredientsSearcherComponent } from './components/ingredients-searcher/
 import { IngredientsListComponent } from './components/ingredients-list/ingredients-list.component';
 
 import { IngredientService } from './services/ingredient.service';
+import { RecipeService } from './services/recipe.service';
 import { AuthService } from './services/auth.service';
 
 import { RequireAuthGuard } from './guards/require-auth.guard';
@@ -29,8 +30,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'auth/signup', component: AuthSignupComponent },
   { path: 'auth/login', component: AuthLoginComponent },
-  { path: 'recipes/list', component: RecipesListComponent }
-  // { path: 'ingredients', component: IngredientsListComponent },
+  { path: 'recipes', component: RecipesListComponent }
 ];
 
 @NgModule({
@@ -56,7 +56,8 @@ const routes: Routes = [
   providers: [
     IngredientService,
     AuthService,
-    RequireAuthGuard
+    RequireAuthGuard,
+    RecipeService
   ],
   bootstrap: [AppComponent]
 })

@@ -12,7 +12,7 @@ import { IngredientService } from '../../services/ingredient.service';
 })
 export class RecipesListComponent implements OnInit {
   recipes = null;
-  ingredientsSelected: string[];
+  // ingredientsSelected: string[];
 
   constructor(
     private ingredientService: IngredientService) { }
