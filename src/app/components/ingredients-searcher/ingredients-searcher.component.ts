@@ -20,7 +20,6 @@ export class IngredientsSearcherComponent implements OnInit {
 
   // basics = [{}];
 
-  // recipes = null;
 
   constructor(
     private ingredientService: IngredientService,
