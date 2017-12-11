@@ -11,6 +11,7 @@ export class RecipeService {
   constructor(private http: Http) { }
 
   getRecipes(ingredients) {
+    console.log('recipe service: ' + ingredients);
     // const ingredientsString = this.parseListIngredientsToUrl(ingredients);
     return this.http.get(`${baseUrl}/recipes/?ingredients=${ingredients}`)
       .map((res: Response) => res.json());

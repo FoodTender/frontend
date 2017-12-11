@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
   selector: 'app-display-recipes',
@@ -7,17 +9,32 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./display-recipes.component.css']
 })
 export class DisplayRecipesComponent implements OnInit {
+  @Input() recipes = null;
+  paramsSub: any;
+  ingredients = '';
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private recipeService: RecipeService
+  ) {
+
+  }
 
   ngOnInit() {
-    this.sub = this.route
+    this.paramsSub = this.activatedRoute
       .queryParams
       .subscribe(params => {
-        this.page = +params['page'] || 0;
+        this.ingredients += params.ingredients || 0;
+      });
+    console.log('Ingredients on init: ' + this.ingredients);
+    this.searchRecipes();
+  }
+
+  searchRecipes() {
+    this.recipeService.getRecipes(this.ingredients)
+      .subscribe((recipes) => {
+        this.recipes = recipes;
       });
   }
 

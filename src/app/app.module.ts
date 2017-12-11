@@ -24,13 +24,15 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthLoginComponent } from './components/auth-login/auth-login.component';
 import { AuthSignupComponent } from './components/auth-signup/auth-signup.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
+import { DisplayRecipesComponent } from './pages/display-recipes/display-recipes.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'auth/signup', component: AuthSignupComponent },
   { path: 'auth/login', component: AuthLoginComponent },
-  { path: 'recipes', component: RecipesListComponent }
+  { path: 'recipes', component: DisplayRecipesComponent }
 ];
 
 @NgModule({
@@ -43,7 +45,8 @@ const routes: Routes = [
     LoginPageComponent,
     AuthLoginComponent,
     AuthSignupComponent,
-    RecipesListComponent
+    RecipesListComponent,
+    DisplayRecipesComponent
   ],
   imports: [
     BrowserModule,

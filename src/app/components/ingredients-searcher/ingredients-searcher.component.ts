@@ -109,9 +109,9 @@ export class IngredientsSearcherComponent implements OnInit {
     }
   }
 
-  searchRecipes(ingredientsSelected) {
-    this.recipeService.getRecipes(this.ingredientsSelected);
-  }
+  // searchRecipes(ingredientsSelected) {
+  //   this.recipeService.getRecipes(this.ingredientsSelected);
+  // }
 
   // searchRecipes(ingredientsSelected) {
   //   this.ingredientService.getRecipes(this.ingredientsSelected)
