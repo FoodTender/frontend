@@ -17,10 +17,10 @@ export class IngredientService {
       .map((res: Response) => res.json());
   }
 
-  getBasicIngredients() {
-    return this.http.get(`${baseUrl}/ingredients/basics`)
-      .map((res: Response) => res.json());
-  }
+  // getBasicIngredients() {
+  //   return this.http.get(`${baseUrl}/ingredients/basics`)
+  //     .map((res: Response) => res.json());
+  // }
 
   /// --- Moved to RecipeService --- //
 

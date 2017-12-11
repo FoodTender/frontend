@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IngredientService } from '../../services/ingredient.service';
 import { RecipeService } from '../../services/recipe.service';
 
@@ -8,21 +8,12 @@ import { RecipeService } from '../../services/recipe.service';
   styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent implements OnInit {
-  recipes = null;
-  // ingredientsSelected: string[];
-
+  @Input() recipe = null;
   constructor(
     private ingredientService: IngredientService,
     private recipeService: RecipeService
   ) { }
 
   ngOnInit() { }
-
-  // searchRecipes() {
-  //   this.recipeService.getRecipes()
-  //     .subscribe((recipes) => {
-  //       this.recipes = recipes;
-  //     });
-  // }
 
 }

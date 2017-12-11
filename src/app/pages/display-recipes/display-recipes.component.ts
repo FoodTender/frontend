@@ -17,9 +17,7 @@ export class DisplayRecipesComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private recipeService: RecipeService
-  ) {
-
-  }
+  ) { }
 
   ngOnInit() {
     this.paramsSub = this.activatedRoute
