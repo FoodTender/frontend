@@ -25,6 +25,22 @@
 }
 
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+
+.page-footer{
+    position: relative;
+    top: 60vh;
+}
+
 @media (orientation: landscape){
     /* .nav-bar {
         justify-content: space-between;

@@ -1,7 +1,12 @@
+<div class="row">
+  <app-ingredients-searcher></app-ingredients-searcher>
+</div>
+
+
 <div>
-  <ul>
-    <li *ngFor="let recipe of recipes">
-      <app-recipes-list [recipe]="recipe"></app-recipes-list>
+  <ul class="our-own-container">
+    <li class="recipe-container" *ngFor="let recipe of recipes">
+      <app-recipes-list class="recipe-itself" [recipe]="recipe"></app-recipes-list>
     </li>
   </ul>
 </div>

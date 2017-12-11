@@ -1,0 +1,20 @@
+.every-recipe{
+    /* width: 50%; */
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+
+@media (orientation: landscape){
+
+    
+    .every-recipe{
+        /* width: 100%; */
+        margin: 0 auto;
+        margin-top: 10px;
+        
+    }
+
+
+
+}

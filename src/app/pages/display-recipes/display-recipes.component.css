@@ -1,0 +1,28 @@
+
+
+
+
+
+
+
+
+
+@media (orientation: landscape){
+    .our-own-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .recipe-container{
+        /* width: 50%; */
+    }
+
+    .recipe-itself{
+        margin: 0 auto;
+    }
+    
+
+}
+
+

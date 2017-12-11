@@ -1,7 +1,15 @@
 <div class="row">
-  <app-ingredients-searcher></app-ingredients-searcher>
+  <div class="col s12">
+    <div class="card every-recipe">
+      <div class="card-image">
+        <img [src]="recipe.picture">
+        <span class="card-title">{{recipe.name}}</span>
+      </div>
+      <div class="card-content">
+        <p>Difficulty of the recipe: {{recipe.difficulty}}</p>
+        <p>Kcal: {{recipe.calories}}</p>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="row">
-  {{ recipe | json}}
-</div>
+      
