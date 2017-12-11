@@ -11,34 +11,10 @@ export class RecipeService {
   constructor(private http: Http) { }
 
   getRecipes(ingredients) {
-    const ingredientsString = this.parseListIngredientsToUrl(ingredients);
-    return this.http.get(`${baseUrl}/recipes/?ingredients=${ingredientsString}`)
+    // const ingredientsString = this.parseListIngredientsToUrl(ingredients);
+    return this.http.get(`${baseUrl}/recipes/?ingredients=${ingredients}`)
       .map((res: Response) => res.json());
   }
 
-  parseListIngredientsToUrl(ingredients) {
-    console.log(ingredients);
-    let ingredientsUrl = '';
 
-    const concat = ingredients.length > 1 ? true : false;
-
-    const ingredientsStr = ingredients.join(',');
-    console.log(ingredientsStr);
-    ingredientsUrl += ingredientsStr;
-
-    // ingredients.forEach(ingredient => {
-    // ingredient = ingredient.name.replace(/ /g, '_'); // Replace white spaces to '_'
-    // ingredientsUrl += ingredient;
-    // if (concat) {
-    //   ingredientsUrl += ',';
-    // }
-    // });
-    // if (concat) {
-    //   ingredientsUrl = ingredientsUrl.slice(0, -1); // Delete last ','
-    // }
-
-    console.log(ingredientsUrl);
-
-    return ingredientsUrl;
-  }
 }

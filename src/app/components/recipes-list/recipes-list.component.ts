@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IngredientService } from '../../services/ingredient.service';
-// import { Router } from '@angular/router/src/router';
-// import { RouterLink } from '@angular/router';
-
-
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
   selector: 'app-recipes-list',
@@ -15,12 +12,14 @@ export class RecipesListComponent implements OnInit {
   // ingredientsSelected: string[];
 
   constructor(
-    private ingredientService: IngredientService) { }
+    private ingredientService: IngredientService,
+    private recipeService: RecipeService
+  ) { }
 
   ngOnInit() { }
 
-  searchRecipes(ingredientsSelected) {
-    this.ingredientService.getRecipes(this.ingredientsSelected)
+  searchRecipes() {
+    this.recipeService.getRecipes()
       .subscribe((recipes) => {
         this.recipes = recipes;
       });

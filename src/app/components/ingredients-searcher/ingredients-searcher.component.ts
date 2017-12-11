@@ -2,6 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IngredientService } from '../../services/ingredient.service';
 import { RecipeService } from '../../services/recipe.service';
 
+import { environment } from '../../../environments/environment';
+
+
 declare var $: any;
 @Component({
   selector: 'app-ingredients-searcher',
@@ -11,10 +14,14 @@ declare var $: any;
 export class IngredientsSearcherComponent implements OnInit {
   @Output() ingredient = new EventEmitter<string>();
 
-  ingredientValue: string;
+  ingredientValue: string; // User value on autocomplete
   ingredients = null;
   ingredientsSelected: string[] = [];
-  recipes = null;
+  baseUrl = environment.apiUrl;
+
+  // basics = [{}];
+
+  // recipes = null;
 
   constructor(
     private ingredientService: IngredientService,
@@ -22,8 +29,21 @@ export class IngredientsSearcherComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // this.ingredientService.getBasicIngredients()
+    //   .subscribe((ingredient) => {
+    //     console.log(ingredient.name);
+    //     this.basics[ingredient.name] = null;
+
+    //   });
+
     $('#time-drop-down').material_select();
     $('.chips').material_chip();
+    // $('.chips-initial').material_chip({
+    //   data: this.basics
+    // });
+    // $('.chips-placeholder').material_chip({
+    //   placeholder: 'Your fridge ingredients here',
+    // });
   }
 
   findIngredient() {
@@ -49,7 +69,38 @@ export class IngredientsSearcherComponent implements OnInit {
             minLength: 1
           });
         }
+
+
+
+        // if (this.ingredients !== null) {
+        //   ingredients.forEach(ingredient => {
+        //     data[ingredient.name] = null;
+        //   });
+
+        //   // Display matching ingredients on autocomplete
+        //   $('.chips-autocomplete').material_chip({
+        //     autocompleteOptions: {
+        //       data: data,
+        //     },
+        //     limit: Infinity,
+        //     onAutocomplete:
+        //       function () {
+        //         self.addIngredientToSearcher($(this).text());
+        //         $('#autocomplete-input').val('');
+        //       },
+        //     minLength: 1
+        //   });
+        // }
       });
+  }
+
+  parseListIngredientsToUrl(ingredients) {
+    console.log(ingredients);
+    let ingredientsUrl = '';
+    const ingredientsStr = ingredients.join(',');
+    ingredientsUrl += ingredientsStr;
+    console.log('Url: ' + ingredientsUrl);
+    return `${this.baseUrl}/recipes/?ingredients=${ingredientsUrl}`;
   }
 
   addIngredientToSearcher(ingredient) {
@@ -59,15 +110,14 @@ export class IngredientsSearcherComponent implements OnInit {
   }
 
   searchRecipes(ingredientsSelected) {
-    this.ingredientService.getRecipes(this.ingredientsSelected)
-      .subscribe((recipes) => {
-        this.recipes = recipes;
-      });
+    this.recipeService.getRecipes(this.ingredientsSelected);
   }
 
   // searchRecipes(ingredientsSelected) {
   //   this.ingredientService.getRecipes(this.ingredientsSelected)
-  //     .subscribe((recipes) => this.recipes = recipes);
+  //     .subscribe((recipes) => {
+  //       this.recipes = recipes;
+  //     });
   // }
 
 }
