@@ -27,6 +27,8 @@
               name="ingredient">
             <label for="autocomplete-input">Your fridge ingredients here</label>
           </div>
+          <!-- For autocompliting chips -->
+          <!-- <div class="chips chips-initial chips-placeholder chips-autocomplete"></div> -->
         </div>
       </div>
     </div>
@@ -40,7 +42,7 @@
     </div>
 
     <!-- Search recipes button -->
-    <a [routerLink]="['/recipes']" class="btn-floating btn-large waves-effect waves-light teal" (click)="searchRecipes(ingredientsSelected)">
+    <a class="btn-floating btn-large waves-effect waves-light teal" (click)="parseListIngredientsToUrl(ingredientsSelected)">
       <i class="material-icons prefix">check</i>
     </a>
 

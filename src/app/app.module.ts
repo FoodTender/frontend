@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'auth/signup', component: AuthSignupComponent },
   { path: 'auth/login', component: AuthLoginComponent },
-  { path: 'recipes', component: RecipesListComponent }
+  { path: 'recipes', component: DisplayRecipesComponent }
 ];
 
 @NgModule({

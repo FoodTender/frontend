@@ -17,36 +17,31 @@ export class IngredientService {
       .map((res: Response) => res.json());
   }
 
-  getRecipes(ingredients) {
-    const ingredientsString = this.parseListIngredientsToUrl(ingredients);
-    return this.http.get(`${baseUrl}/recipes/?ingredients=${ingredientsString}`)
-      .map((res: Response) => res.json());
-  }
+  // getBasicIngredients() {
+  //   return this.http.get(`${baseUrl}/ingredients/basics`)
+  //     .map((res: Response) => res.json());
+  // }
 
-  parseListIngredientsToUrl(ingredients) {
-    console.log(ingredients);
-    let ingredientsUrl = '';
+  /// --- Moved to RecipeService --- //
 
-    const concat = ingredients.length > 1 ? true : false;
+  // getRecipes(ingredients) {
+  //   const ingredientsString = this.parseListIngredientsToUrl(ingredients);
+  //   return this.http.get(`${baseUrl}/recipes/?ingredients=${ingredientsString}`)
+  //     .map((res: Response) => res.json());
+  // }
 
-    const ingredientsStr = ingredients.join(',');
-    console.log(ingredientsStr);
-    ingredientsUrl += ingredientsStr;
+  // parseListIngredientsToUrl(ingredients) {
+  //   console.log(ingredients);
+  //   let ingredientsUrl = '';
 
-    // ingredients.forEach(ingredient => {
-    // ingredient = ingredient.name.replace(/ /g, '_'); // Replace white spaces to '_'
-    // ingredientsUrl += ingredient;
-    // if (concat) {
-    //   ingredientsUrl += ',';
-    // }
-    // });
-    // if (concat) {
-    //   ingredientsUrl = ingredientsUrl.slice(0, -1); // Delete last ','
-    // }
+  //   const concat = ingredients.length > 1 ? true : false;
 
-    console.log(ingredientsUrl);
+  //   const ingredientsStr = ingredients.join(',');
+  //   console.log(ingredientsStr);
+  //   ingredientsUrl += ingredientsStr;
+  //   console.log(ingredientsUrl);
 
-    return ingredientsUrl;
-  }
+  //   return ingredientsUrl;
+  // }
 
 }
