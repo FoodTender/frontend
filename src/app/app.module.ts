@@ -14,6 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { DisplayRecipesComponent } from './pages/display-recipes/display-recipes.component';
+import { RecipeDetailComponent } from './pages/recipe-detail/recipe-detail.component';
 
 
 import { IngredientsSearcherComponent } from './components/ingredients-searcher/ingredients-searcher.component';
@@ -21,6 +22,7 @@ import { IngredientsListComponent } from './components/ingredients-list/ingredie
 import { AuthLoginComponent } from './components/auth-login/auth-login.component';
 import { AuthSignupComponent } from './components/auth-signup/auth-signup.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
+
 
 import { IngredientService } from './services/ingredient.service';
 import { RecipeService } from './services/recipe.service';
@@ -34,7 +36,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'auth/signup', component: AuthSignupComponent },
   { path: 'auth/login', component: AuthLoginComponent },
-  { path: 'recipes', component: DisplayRecipesComponent }
+  { path: 'recipes', component: DisplayRecipesComponent },
+  { path: 'recipes/:recipeId', component: RecipeDetailComponent }
 ];
 
 @NgModule({
@@ -48,7 +51,8 @@ const routes: Routes = [
     AuthLoginComponent,
     AuthSignupComponent,
     RecipesListComponent,
-    DisplayRecipesComponent
+    DisplayRecipesComponent,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,

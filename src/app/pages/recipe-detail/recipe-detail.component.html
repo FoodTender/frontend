@@ -1,0 +1,32 @@
+<div class="row d-flex">
+  <!-- Left side: title, directions, ingredients -->
+  <div class="col s12 m6" *ngIf="recipe">
+
+    <h2 class="title">{{ recipe.name }}</h2>
+    <div class="text">
+      <p>
+        <span class="characteristics">
+          <i class="material-icons">timer</i>
+          {{ recipe.time }}
+        </span>
+        <span class="characteristics">
+          <i class="material-icons">restaurant_menu</i>
+          {{ recipe.servings }}
+        </span>
+        <span class="characteristics">
+          <i class="material-icons">school</i>
+          {{ recipe.difficulty }}
+        </span>
+        <span class="characteristics">
+          {{ recipe.calories }}kcal
+        </span>
+      </p>
+      <p>{{ recipe.directions }}</p>
+    </div>
+  </div>
+
+  <!-- Right side: image -->
+  <div class="col s12 m6" *ngIf="recipe">
+    <img [src]="recipe.picture" class="materialboxed pic" alt="">
+  </div>
+</div>

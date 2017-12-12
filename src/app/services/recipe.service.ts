@@ -17,4 +17,9 @@ export class RecipeService {
       .map((res: Response) => res.json());
   }
 
+  getRecipeDetail(ingredientId) {
+    return this.http.get(`${baseUrl}/recipes/${ingredientId}`)
+      .map((res: Response) => res.json());
+  }
+
 }
