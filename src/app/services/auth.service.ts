@@ -18,7 +18,6 @@ export class AuthService {
   private user: User;
   private userChange: Subject<User | null> = new Subject();
 
-
   // Observable string stream
   userChange$ = this.userChange.asObservable();
 
@@ -54,10 +53,10 @@ export class AuthService {
     const options = new RequestOptions();
     options.withCredentials = true;
     return this.http.post(apiUrl + '/logout', {}, options)
-    .map(res => {
-      this.setUser();
-      return null;
-    });
+      .map(res => {
+        this.setUser();
+        return null;
+      });
   }
 
   me() {
