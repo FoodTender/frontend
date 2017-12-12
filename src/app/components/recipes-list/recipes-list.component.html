@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col s12">
-    <div class="card every-recipe">
+    <div [routerLink]="['/recipes', recipe._id]" class="card every-recipe">
       <div class="card-image">
         <img [src]="recipe.picture">
         <span class="card-title">{{recipe.name}}</span>
@@ -11,8 +11,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="row">
-  {{ recipe | json}} {{ recipe.name }}
 </div>
