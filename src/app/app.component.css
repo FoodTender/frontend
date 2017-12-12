@@ -31,14 +31,9 @@ body {
     flex-direction: column;
 }
 
-main {
-    flex: 1 0 auto;
-}
-
-
-.page-footer{
-    position: relative;
-    top: 60vh;
+.contacts{
+display: flex;
+flex-direction: row;
 }
 
 @media (orientation: landscape){

@@ -14,11 +14,12 @@ declare var $: any;
 export class IngredientsSearcherComponent implements OnInit {
   @Output() ingredient = new EventEmitter<string>();
 
-  ingredientValue: string; // User value on autocomplete
+  ingredientValue = "b"; // User value on autocomplete
   ingredients = null;
   ingredientsSelected: string[] = [];
 
-  // basics = [{}];
+  basics = [{}];
+  basicIngredients = null;
 
 
   constructor(
@@ -28,70 +29,83 @@ export class IngredientsSearcherComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.ingredientService.getBasicIngredients()
-    //   .subscribe((ingredient) => {
-    //     console.log(ingredient.name);
-    //     this.basics[ingredient.name] = null;
+    this.ingredientService.getBasicIngredients()
+      .subscribe((ingredient) => {
+        // console.log('Cris', ingredient);
+        // this.basics[ingredient.name] = null;
 
-    //   });
+        this.basicIngredients = ingredient.map((ingredient2) => {
+          return {tag : ingredient2['name']};
+        });
+        $('.chips-ingredients').material_chip({
+          data: this.basicIngredients,
+          placeholder: 'Your fridge ingredients here'
+        });
+        console.log(this.basicIngredients);
+      });
 
     $('#time-drop-down').material_select();
-    $('.chips').material_chip();
-    // $('.chips-initial').material_chip({
-    //   data: this.basics
-    // });
-    // $('.chips-placeholder').material_chip({
+
+    // $('.chips').material_chip();
+
+    // $('.chips-ingredients').material_chip({
     //   placeholder: 'Your fridge ingredients here',
     // });
+
+    // this.findIngredient();
   }
 
-  findIngredient() {
-    this.ingredientService.getIngredients(this.ingredientValue)
-      .subscribe((ingredients) => {
-        this.ingredients = ingredients;
-        const data = {};
-        const self = this;
+  // findIngredient() {
+  //   this.ingredientService.getIngredients(this.ingredientValue)
+  //     .subscribe((ingredients) => {
+  //       this.ingredients = ingredients;
+  //       const data = {};
+  //       const self = this;
 
-        if (this.ingredients !== null) {
-          ingredients.forEach(ingredient => {
-            data[ingredient.name] = null;
-          });
+  //       if (this.ingredients !== null) {
+  //         ingredients.forEach(ingredient => {
+  //           data[ingredient.name] = null;
+  //         });
 
-          // Display matching ingredients on autocomplete
-          $('input.autocomplete').autocomplete({
-            data: data,
-            onAutocomplete:
-              function () {
-                self.addIngredientToSearcher($(this).text());
-                $('#autocomplete-input').val('');
-              },
-            minLength: 1
-          });
-        }
+  //         // Display matching ingredients on autocomplete
+  //         $('.chips-ingredients').material_chip({
+  //           autocompleteOptions: {
+  //           data: data,
+  //           // onAutocomplete:
+  //           //   function () {
+  //           //     self.addIngredientToSearcher($(this).text());
+  //           //     $('#autocomplete-input').val('');
+  //           //   },
+  //             limit: Infinity,
+  //           minLength: 1
+  //         }});
+  //       }
 
 
 
-        // if (this.ingredients !== null) {
-        //   ingredients.forEach(ingredient => {
-        //     data[ingredient.name] = null;
-        //   });
 
-        //   // Display matching ingredients on autocomplete
-        //   $('.chips-autocomplete').material_chip({
-        //     autocompleteOptions: {
-        //       data: data,
-        //     },
-        //     limit: Infinity,
-        //     onAutocomplete:
-        //       function () {
-        //         self.addIngredientToSearcher($(this).text());
-        //         $('#autocomplete-input').val('');
-        //       },
-        //     minLength: 1
-        //   });
-        // }
-      });
-  }
+
+  //       // if (this.ingredients !== null) {
+  //       //   ingredients.forEach(ingredient => {
+  //       //     data[ingredient.name] = null;
+  //       //   });
+
+  //       //   // Display matching ingredients on autocomplete
+  //       //   $('.chips-autocomplete').material_chip({
+  //       //     autocompleteOptions: {
+  //       //       data: data,
+  //       //     },
+  //       //     limit: Infinity,
+  //       //     onAutocomplete:
+  //       //       function () {
+  //       //         self.addIngredientToSearcher($(this).text());
+  //       //         $('#autocomplete-input').val('');
+  //       //       },
+  //       //     minLength: 1
+  //       //   });
+  //       // }
+  //     });
+  // }
 
   parseListIngredientsToUrl(ingredients) {
     console.log(ingredients);

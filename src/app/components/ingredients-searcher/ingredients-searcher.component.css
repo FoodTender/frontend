@@ -7,33 +7,38 @@
 }
 
 
+.chips-ingredients{
+    z-index: 10;
+    position: relative;
+}
+
 
 
 
 
 @media (orientation: landscape){
-.ingredients-pick-desktop{
-    display: flex;
-    flex-direction: row;
-    padding: 50px;
-    margin-top: 5%;
+    .ingredients-pick-desktop{
+        display: flex;
+        flex-direction: row;
+        padding: 50px;
+        margin-top: 5%;
 
-}
-.time-drop-down{
-    width: 50%;
-}
-.ingredients-chosen{
-    width: 50%;
-}
-.chosing-ingredients{
-    width: 50%;
-}
-.ingredients-searcher-component{
-    width: 50%;
-    float: left;
-}
-.food-field {
-    padding: 0;
-}
+    }
+    .time-drop-down{
+        width: 50%;
+    }
+    .ingredients-chosen{
+        width: 50%;
+    }
+    .chosing-ingredients{
+        width: 50%;
+    }
+    .ingredients-searcher-component{
+        width: 50%;
+        float: left;
+    }
+    .food-field {
+        padding: 0;
+    }
 
 }
