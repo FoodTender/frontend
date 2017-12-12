@@ -14,12 +14,13 @@ declare var $: any;
 export class IngredientsSearcherComponent implements OnInit {
   @Output() ingredient = new EventEmitter<string>();
 
-  ingredientValue = "b"; // User value on autocomplete
+  ingredientValue = 'b'; // User value on autocomplete
   ingredients = null;
   ingredientsSelected: string[] = [];
 
   basics = [{}];
   basicIngredients = null;
+  allIngredients = {};
 
 
   constructor(
@@ -30,18 +31,32 @@ export class IngredientsSearcherComponent implements OnInit {
 
   ngOnInit() {
     this.ingredientService.getBasicIngredients()
-      .subscribe((ingredient) => {
+      .subscribe((ingredients) => {
         // console.log('Cris', ingredient);
         // this.basics[ingredient.name] = null;
-
-        this.basicIngredients = ingredient.map((ingredient2) => {
-          return {tag : ingredient2['name']};
+        const self = this;
+        this.basicIngredients = ingredients.reduce((basics, ingredient) => {
+          if (ingredient.basic === true) {
+            basics.push({tag : ingredient.name});
+            this.ingredientsSelected.push(ingredient.name);
+          }
+          return basics;
+        }, []);
+        console.log(this.basicIngredients);
+        ingredients.forEach(ingredient => {
+          this.allIngredients[ingredient.name] = null;
         });
         $('.chips-ingredients').material_chip({
           data: this.basicIngredients,
-          placeholder: 'Your fridge ingredients here'
+          placeholder: 'Your fridge ingredients here',
+          autocompleteOptions: {
+            data: this.allIngredients,
+            function () {
+             self.addIngredientToSearcher($(this).text());
+              //  $('#autocomplete-input').val('');
+            },
+          }
         });
-        console.log(this.basicIngredients);
       });
 
     $('#time-drop-down').material_select();
@@ -53,6 +68,15 @@ export class IngredientsSearcherComponent implements OnInit {
     // });
 
     // this.findIngredient();
+
+    $('.close').on('click',this.handleDelete(this.ingredientsSelected));
+
+  }
+
+  handleDelete(arr){
+    console.log($(this));
+    console.log('marieta');
+
   }
 
   // findIngredient() {
