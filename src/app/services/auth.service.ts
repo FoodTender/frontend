@@ -81,7 +81,6 @@ export class AuthService {
   }
 
   getUser() {
-    console.log('thisuser: ', this.user);
     return this.user;
   }
 }

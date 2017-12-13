@@ -27,16 +27,17 @@ import { BookmarkService } from './services/bookmark.service';
 import { AuthService } from './services/auth.service';
 
 import { RequireAuthGuard } from './guards/require-auth.guard';
-import { LoggedInGuard } from './guards/logged-in.guard';
+import { AnonGuard } from './guards/anon.guard';
+import { AuthInitGuard } from './guards/auth-init.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'auth/signup', component: SignupPageComponent },
-  { path: 'auth/login', component: LoginPageComponent },
-  { path: 'recipes', component: DisplayRecipesComponent },
-  { path: 'recipes/:recipeId', component: RecipeDetailComponent },
-  { path: 'me/bookmarks', component: BookmarksComponent } // Add guard: check if logged in
+  { path: 'home', canActivate: [AuthInitGuard], component: HomeComponent },
+  { path: 'auth/signup', canActivate: [AnonGuard], component: SignupPageComponent },
+  { path: 'auth/login', canActivate: [AnonGuard], component: LoginPageComponent },
+  { path: 'recipes', canActivate: [AuthInitGuard], component: DisplayRecipesComponent },
+  { path: 'recipes/:recipeId', canActivate: [AuthInitGuard], component: RecipeDetailComponent },
+  { path: 'me/bookmarks', canActivate: [RequireAuthGuard], component: BookmarksComponent } // Add guard: check if logged in
 ];
 
 @NgModule({
@@ -65,7 +66,8 @@ const routes: Routes = [
     IngredientService,
     AuthService,
     RequireAuthGuard,
-    LoggedInGuard,
+    AnonGuard,
+    AuthInitGuard,
     RecipeService,
     BookmarkService
   ],

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
-export class LoggedInGuard implements CanActivate {
+export class AnonGuard implements CanActivate {
 
   constructor(
     private authService: AuthService,
