@@ -12,7 +12,15 @@
     position: relative;
 }
 
+.ingredients-pick-mobile{
+    margin-top: 90px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
 
+.chips .autocomplete-content{
+    margin-top: 50px;
+}
 
 
 

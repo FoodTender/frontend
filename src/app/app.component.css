@@ -27,17 +27,29 @@
 
 body {
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
 }
 
 .contacts{
 display: flex;
 flex-direction: row;
+font-weight: 100;
+}
+
+.grey-text{
+    font-weight: 100;
+}
+
+.mobile-disappear{
+    display: none;
 }
 
 @media (orientation: landscape){
     /* .nav-bar {
         justify-content: space-between;
     } */
+
+    .mobile-disappear{
+        display: inline;
+    }
 }

@@ -20,7 +20,11 @@
         <span class="characteristics">
           {{ recipe.calories }}kcal
         </span>
+        <span class="characteristics">
+          {{ recipe.ingredients | json }}
+        </span>
       </p>
+
       <p>{{ recipe.directions }}</p>
     </div>
   </div>
