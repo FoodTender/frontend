@@ -1,11 +1,13 @@
 import { environment } from '../../environments/environment';
 
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 const baseUrl = environment.apiUrl;
+const options = new RequestOptions();
+
 
 @Injectable()
 export class IngredientService {
@@ -13,13 +15,15 @@ export class IngredientService {
   constructor(private http: Http) { }
 
   getIngredients(ingredient) {
-    return this.http.get(`${baseUrl}/ingredients/?terms=${ingredient}`)
+    options.withCredentials = true;
+    return this.http.get(`${baseUrl}/ingredients/?terms=${ingredient}`, options)
       .map((res: Response) => res.json());
   }
 
 
   getBasicIngredients() {
-    return this.http.get(`${baseUrl}/ingredients/basic`)
+    options.withCredentials = true;
+    return this.http.get(`${baseUrl}/ingredients/basic`, options)
       .map((res: Response) => res.json());
   }
 

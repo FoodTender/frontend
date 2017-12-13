@@ -1,10 +1,11 @@
 import { environment } from '../../environments/environment';
 
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions } from '@angular/http';
 import { AuthService } from './auth.service';
 
 const baseUrl = environment.apiUrl;
+const options = new RequestOptions();
 
 @Injectable()
 export class RecipeService {
@@ -15,13 +16,15 @@ export class RecipeService {
   ) { }
 
   getRecipes(ingredients) {
+    options.withCredentials = true;
     // const ingredientsString = this.parseListIngredientsToUrl(ingredients);
-    return this.http.get(`${baseUrl}/recipes/?ingredients=${ingredients}`)
+    return this.http.get(`${baseUrl}/recipes/?ingredients=${ingredients}`, options)
       .map((res: Response) => res.json());
   }
 
   getRecipeDetail(ingredientId) {
-    return this.http.get(`${baseUrl}/recipes/${ingredientId}`)
+    options.withCredentials = true;
+    return this.http.get(`${baseUrl}/recipes/${ingredientId}`, options)
       .map((res: Response) => res.json());
   }
 

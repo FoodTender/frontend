@@ -14,6 +14,7 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { DisplayRecipesComponent } from './pages/display-recipes/display-recipes.component';
 import { RecipeDetailComponent } from './pages/recipe-detail/recipe-detail.component';
+import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
 
 import { IngredientsSearcherComponent } from './components/ingredients-searcher/ingredients-searcher.component';
 import { AuthLoginComponent } from './components/auth-login/auth-login.component';
@@ -22,6 +23,7 @@ import { RecipesListComponent } from './components/recipes-list/recipes-list.com
 
 import { IngredientService } from './services/ingredient.service';
 import { RecipeService } from './services/recipe.service';
+import { BookmarkService } from './services/bookmark.service';
 import { AuthService } from './services/auth.service';
 
 import { RequireAuthGuard } from './guards/require-auth.guard';
@@ -30,10 +32,11 @@ import { LoggedInGuard } from './guards/logged-in.guard';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'auth/signup', component: SignupPageComponent },
-  { path: 'auth/login', component: LoginPageComponent },
+  { path: 'auth/signup', canLoad: [LoggedInGuard], component: SignupPageComponent },
+  { path: 'auth/login', canLoad: [LoggedInGuard], component: LoginPageComponent },
   { path: 'recipes', component: DisplayRecipesComponent },
-  { path: 'recipes/:recipeId', component: RecipeDetailComponent }
+  { path: 'recipes/:recipeId', component: RecipeDetailComponent },
+  // { path: 'me/bookmarks', canActivate: [RequireAuthGuard], component: BookmarksComponent }
 ];
 
 @NgModule({
@@ -47,7 +50,8 @@ const routes: Routes = [
     AuthSignupComponent,
     RecipesListComponent,
     DisplayRecipesComponent,
-    RecipeDetailComponent
+    RecipeDetailComponent,
+    BookmarksComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,8 @@ const routes: Routes = [
     AuthService,
     RequireAuthGuard,
     LoggedInGuard,
-    RecipeService
+    RecipeService,
+    BookmarkService
   ],
   bootstrap: [AppComponent]
 })
