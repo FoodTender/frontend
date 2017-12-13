@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { RecipeService } from '../../services/recipe.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-display-recipes',
   templateUrl: './display-recipes.component.html',
@@ -27,6 +29,7 @@ export class DisplayRecipesComponent implements OnInit {
       });
     console.log('Ingredients on init: ' + this.ingredients);
     this.searchRecipes();
+    $('.materialboxed').materialbox();
   }
 
   searchRecipes() {

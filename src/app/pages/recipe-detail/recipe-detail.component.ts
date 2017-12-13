@@ -30,9 +30,9 @@ export class RecipeDetailComponent implements OnInit {
       .subscribe((recipe) => {
         this.recipe = recipe;
       });
-
-    // Initialize materialbox for images
-    $('.materialboxed').materialbox();
   }
 
+
+
 }
+
