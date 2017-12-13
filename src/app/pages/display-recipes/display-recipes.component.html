@@ -2,10 +2,18 @@
   <app-ingredients-searcher></app-ingredients-searcher>
 </div>
 
-<div>
-  <ul class="our-own-container">
-    <li class="recipe-container" *ngFor="let recipe of recipes">
-      <app-recipes-list class="recipe-itself" [recipe]="recipe"></app-recipes-list>
-    </li>
-  </ul>
-</div>
+
+<div *ngIf="recipes !== null && recipes.length > 0; then recipesTemplate else messageTemplate "></div>
+  <ng-template #recipesTemplate>
+    <ul class="our-own-container">
+      <li class="recipe-container" *ngFor="let recipe of recipes">
+        <app-recipes-list class="recipe-itself" [recipe]="recipe"></app-recipes-list>
+      </li>
+    </ul>
+  </ng-template>
+
+  <ng-template #messageTemplate>
+    <div style="background-color:red">
+      <p>no recipes!</p>
+    </div>
+  </ng-template>

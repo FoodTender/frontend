@@ -1,4 +1,41 @@
+.flexbox-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+}
 
+
+.submit-button-flexbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.submit-button-signup{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.form-mobile-style{
+    width: 80%;
+    padding-top: 10%;
+}
+
+.already-account{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.error{
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 
 @media (orientation: landscape){
@@ -7,19 +44,9 @@
 }
 
 .flexbox-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-	align-items: center;
-    align-content: center;
     padding: 60px;
 }
 
-.submit-button-flexbox {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-	align-items: center;
-    align-content: center;
-}
+
+
 }

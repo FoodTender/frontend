@@ -16,13 +16,16 @@
     margin-top: 90px;
     margin-right: 20px;
     margin-left: 20px;
+    margin-bottom: 50px;
 }
 
 .chips .autocomplete-content{
     margin-top: 50px;
 }
 
-
+.chips.input{
+    width: 310px;
+}
 
 @media (orientation: landscape){
     .ingredients-pick-desktop{
