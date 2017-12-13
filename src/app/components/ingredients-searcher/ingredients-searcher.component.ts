@@ -14,14 +14,13 @@ declare var $: any;
 export class IngredientsSearcherComponent implements OnInit {
   @Output() ingredient = new EventEmitter<string>();
 
-  ingredientValue = 'b'; // User value on autocomplete
+  ingredientValue; // User value on autocomplete
   ingredients = null;
   ingredientsSelected: string[] = [];
 
   basics = [{}];
   basicIngredients = null;
   allIngredients = {};
-
 
   constructor(
     private ingredientService: IngredientService,
@@ -32,12 +31,10 @@ export class IngredientsSearcherComponent implements OnInit {
   ngOnInit() {
     this.ingredientService.getBasicIngredients()
       .subscribe((ingredients) => {
-        // console.log('Cris', ingredient);
-        // this.basics[ingredient.name] = null;
         const self = this;
         this.basicIngredients = ingredients.reduce((basics, ingredient) => {
           if (ingredient.basic === true) {
-            basics.push({tag : ingredient.name});
+            basics.push({ tag: ingredient.name });
             this.ingredientsSelected.push(ingredient.name);
           }
           return basics;
@@ -51,12 +48,14 @@ export class IngredientsSearcherComponent implements OnInit {
           placeholder: 'Your fridge ingredients here',
           autocompleteOptions: {
             data: this.allIngredients,
-            function () {
-             self.addIngredientToSearcher($(this).text());
-              //  $('#autocomplete-input').val('');
-            },
           }
         });
+
+        $('.chips-ingredients').on('chip.add', function (e, chip) {
+          // console.log(chip.tag);
+          self.addIngredientToSearcher(chip.tag); // Add user input to ingredientsSelected[]
+        });
+
       });
 
     $('#time-drop-down').material_select();
@@ -69,14 +68,20 @@ export class IngredientsSearcherComponent implements OnInit {
 
     // this.findIngredient();
 
-    $('.close').on('click',this.handleDelete(this.ingredientsSelected));
+    // Remove ingredient from ingredientsSelected[] when discarted
+
+    // $('.close').click(function () { // Not using
+    //   console.log('click, ingredients:');
+    //   console.log(this.ingredientsSelected);
+    // });
 
   }
 
-  handleDelete(arr){
-    console.log($(this));
-    console.log('marieta');
-
+  handleDelete(event) {
+    const parent = $(event.target).parent().html();
+    const discardText = parent.substr(0, parent.indexOf('<'));
+    const discardIndex = this.ingredientsSelected.indexOf(discardText);
+    if (discardIndex > -1) { this.ingredientsSelected.splice(discardIndex, 1); }
   }
 
   // findIngredient() {
@@ -132,11 +137,9 @@ export class IngredientsSearcherComponent implements OnInit {
   // }
 
   parseListIngredientsToUrl(ingredients) {
-    console.log(ingredients);
     let ingredientsUrl = '';
     const ingredientsStr = ingredients.join(',');
     ingredientsUrl += ingredientsStr;
-    console.log('Url: ' + ingredientsUrl);
     this.router.navigate(['/recipes'], { queryParams: { ingredients: ingredientsUrl } });
   }
 
