@@ -32,11 +32,11 @@ import { LoggedInGuard } from './guards/logged-in.guard';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'auth/signup', canLoad: [LoggedInGuard], component: SignupPageComponent },
-  { path: 'auth/login', canLoad: [LoggedInGuard], component: LoginPageComponent },
+  { path: 'auth/signup', component: SignupPageComponent },
+  { path: 'auth/login', component: LoginPageComponent },
   { path: 'recipes', component: DisplayRecipesComponent },
   { path: 'recipes/:recipeId', component: RecipeDetailComponent },
-  // { path: 'me/bookmarks', canActivate: [RequireAuthGuard], component: BookmarksComponent }
+  { path: 'me/bookmarks', component: BookmarksComponent } // Add guard: check if logged in
 ];
 
 @NgModule({

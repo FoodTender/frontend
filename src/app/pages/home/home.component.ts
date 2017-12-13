@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IngredientService } from '../../services/ingredient.service';
-declare var $: any;
+import { Router } from '@angular/router';
 
+import { IngredientService } from '../../services/ingredient.service';
+import { AuthService } from '../../services/auth.service';
+
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -11,19 +14,30 @@ declare var $: any;
 
 export class HomeComponent implements OnInit {
   ingredients = null;
+  user = null;
 
-  constructor(private ingredientService: IngredientService) { }
-
-
-  findIngredient(userIngredient) {
-
-  }
+  constructor(
+    private ingredientService: IngredientService,
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    $('.carousel.carousel-slider').carousel({fullWidth: true});
+    this.authService.me();
+    this.authService.userChange$.subscribe((user) => {
+      this.user = user;
+    });
+
+    $('.carousel.carousel-slider').carousel({ fullWidth: true });
     $('.btn').on('click touchstart', e => {
       console.log('working');
     });
+  }
+
+  handleLogout() {
+    console.log('logout');
+    this.authService.logout()
+      .subscribe(() => this.router.navigate(['/auth/login']));
   }
 
 }

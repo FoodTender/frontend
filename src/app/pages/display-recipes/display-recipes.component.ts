@@ -23,7 +23,7 @@ export class DisplayRecipesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.paramsSub = this.activatedRoute // Maybe change to new function getIngredientsUrl()
+    this.paramsSub = this.activatedRoute // Change to new function getIngredientsUrl() (?)
       .queryParams
       .subscribe(params => {
         this.ingredients += params.ingredients || 0;
@@ -33,8 +33,6 @@ export class DisplayRecipesComponent implements OnInit {
   }
 
   searchRecipes() {
-    console.log(this.ingredients);
-
     this.recipeService.getRecipes(this.ingredients)
       .subscribe((recipes) => {
         this.recipes = recipes;

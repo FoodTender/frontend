@@ -22,29 +22,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // this.authService.me();
-    this.authService.userChange$.subscribe((user) => {
-      this.loading = false;
-      this.user = user;
-    });
+    // this.authService.userChange$.subscribe((user) => {
+    //   this.loading = false;
+    //   this.user = user;
+    // });
   }
 
-
-  login() {
-    this.router.navigate(['/auth/login']);
-  }
-
-  signup() {
-    this.router.navigate(['/auth/signup']);
-  }
-
-  // profile() {
-  //   this.router.navigate(['/profile']);
-  // }
-
-  logout() {
-    this.authService.logout()
-      .subscribe(() => this.router.navigate(['/auth/login']));
-  }
 
 }
 

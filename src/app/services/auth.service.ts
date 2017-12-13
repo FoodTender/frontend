@@ -23,7 +23,7 @@ export class AuthService {
 
   constructor(private http: Http) { }
 
-  private setUser(user: User = null) {
+  setUser(user: User = null) {
     this.loaded = true;
     this.user = user;
     this.userChange.next(user);
@@ -52,6 +52,7 @@ export class AuthService {
   logout() {
     const options = new RequestOptions();
     options.withCredentials = true;
+    console.log(apiUrl + '/logout');
     return this.http.post(apiUrl + '/logout', {}, options)
       .map(res => {
         this.setUser();
@@ -80,6 +81,7 @@ export class AuthService {
   }
 
   getUser() {
+    console.log('thisuser: ', this.user);
     return this.user;
   }
 }
