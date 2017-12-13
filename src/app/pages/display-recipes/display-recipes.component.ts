@@ -30,8 +30,6 @@ export class DisplayRecipesComponent implements OnInit {
       });
 
     this.searchRecipes();
-
-    $('.materialboxed').materialbox(); // Initialize materialize media
   }
 
   searchRecipes() {
