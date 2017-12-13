@@ -21,6 +21,7 @@ export class BookmarksComponent implements OnInit {
       .subscribe((bookmarks) => {
         this.bookmarks = bookmarks;
       });
+    console.log(this.bookmarks);
   }
 
 }

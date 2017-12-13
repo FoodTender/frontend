@@ -4,22 +4,14 @@
     margin-top: 10px;
 }
 
-
 .card-title{
     font-size: 3em;
 }
 
-
 @media (orientation: landscape){
-
-    
     .every-recipe{
         /* width: 100%; */
         margin: 0 auto;
         margin-top: 10px;
-        
     }
-
-
-
 }

@@ -10,7 +10,6 @@
 
 }
 
-
 .no-recipes-found-warning{
     display: flex;
     text-align: center;
@@ -25,8 +24,6 @@
 	align-content: center;
 }
 
-
-
 @media (orientation: landscape){
     .our-own-container{
         display: flex;
@@ -34,12 +31,9 @@
         justify-content: center;
     }
 
-
     .recipe-itself{
         margin: 0 auto;
     }
-    
-
 }
 
 

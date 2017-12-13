@@ -15,7 +15,7 @@
 
 <!-- If user logged in > Show Your bookmakrs / Logout -->
 <div *ngIf="user" class="my-own-buttons">
-    <a [routerLink]="['/me/bookmarks']" class="btn waves-effect white-text darken-text-2 button-custom-1 ">Your Bookmarks</a>
+    <a [routerLink]="['/bookmarks']" class="btn waves-effect white-text darken-text-2 button-custom-1 ">Your Bookmarks</a>
     <a [routerLink]="['/home']" (click)="handleLogout()" class="btn waves-effect white-text darken-text-2 button-custom-2 red darken-4">Logout</a>
 </div>
 

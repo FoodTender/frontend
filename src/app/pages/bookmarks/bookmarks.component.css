@@ -1,0 +1,39 @@
+
+.searcher-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.ingredients-pick-desktop{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.no-recipes-found-warning{
+    display: flex;
+    text-align: center;
+}
+
+.no-recipes-found{
+    display: flex;
+    flex-direction: column;
+    font-size: 2em;
+    justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+@media (orientation: landscape){
+    .our-own-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .recipe-itself{
+        margin: 0 auto;
+    }
+}
+
+

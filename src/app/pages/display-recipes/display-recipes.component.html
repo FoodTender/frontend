@@ -1,19 +1,22 @@
+<!-- Ingredients autocomplete searcher -->
 <div class="row row-display-flex">
   <app-ingredients-searcher [ingredients]="ingredients" class="display-recipes"></app-ingredients-searcher>
 </div>
 
-
+<!-- Condition to show the recipies or a message if no match found -->
 <div *ngIf="recipes !== null && recipes.length > 0; then recipesTemplate else messageTemplate "></div>
-  <ng-template #recipesTemplate>
-    <ul class="our-own-container">
-      <li class="recipe-container" *ngFor="let recipe of recipes">
-        <app-recipes-list class="recipe-itself" [recipe]="recipe"></app-recipes-list>
-      </li>
-    </ul>
-  </ng-template>
 
-  <ng-template #messageTemplate>
-    <div class="no-recipes-found foodtender-red">
-        <i class="material-icons large">warning</i><p class="no-recipes-found-warning comfortaa"> Hey! Go to supermarket, your fridge is empty!</p>
-    </div>
-  </ng-template>
+<ng-template #recipesTemplate>
+  <ul class="our-own-container">
+    <li class="recipe-container" *ngFor="let recipe of recipes">
+      <app-recipes-list class="recipe-itself" [recipe]="recipe"></app-recipes-list>
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template #messageTemplate>
+  <div class="no-recipes-found foodtender-red">
+    <i class="material-icons large">warning</i>
+    <p class="no-recipes-found-warning comfortaa"> Hey! Go to supermarket, your fridge is empty!</p>
+  </div>
+</ng-template>
