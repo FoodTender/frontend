@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'auth/login', canActivate: [AnonGuard], component: LoginPageComponent },
   { path: 'recipes', canActivate: [AuthInitGuard], component: DisplayRecipesComponent },
   { path: 'recipes/:recipeId', canActivate: [AuthInitGuard], component: RecipeDetailComponent },
-  { path: 'me/bookmarks', canActivate: [RequireAuthGuard], component: BookmarksComponent } // Add guard: check if logged in
+  { path: 'bookmarks', canActivate: [RequireAuthGuard], component: BookmarksComponent } // Add guard: check if logged in
 ];
 
 @NgModule({
