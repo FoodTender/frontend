@@ -13,11 +13,9 @@ declare var $: any;
 })
 export class IngredientsSearcherComponent implements OnInit {
   @Output() ingredient = new EventEmitter<string>();
+  @Input() ingredients = [];
   ingredientValue; // User value on autocomplete
-  ingredients = null;
-  ingredientsSelected: string[] = this.ingredientsSelected || [];
-  basics = [{}];
-  basicIngredients = null;
+  ingredientsSelected = [];
   allIngredients = {};
 
   constructor(
@@ -27,26 +25,21 @@ export class IngredientsSearcherComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ingredientService.getBasicIngredients()
+    this.ingredientsSelected = this.ingredients.map(ingredient => {
+      return { tag: ingredient.name };
+    });
+
+    this.ingredientService.getAllIngredients()
       .subscribe((ingredients) => {
         const self = this;
-        this.basicIngredients = ingredients.reduce((basics, ingredient) => {
-          if (ingredient.basic === true) {
-            basics.push({ tag: ingredient.name });
-            this.ingredientsSelected.push(ingredient.name);
-          }
-          return basics;
-        }, []);
-
-        console.log(this.basicIngredients);
 
         ingredients.forEach(ingredient => {
           this.allIngredients[ingredient.name] = null;
         });
 
         $('.chips-ingredients').material_chip({
-          data: this.basicIngredients,
-          placeholder: 'Your fridge ingredients here',
+          data: this.ingredientsSelected,
+          placeholder: 'Ingredients here',
           autocompleteOptions: {
             data: this.allIngredients,
           }
@@ -74,13 +67,21 @@ export class IngredientsSearcherComponent implements OnInit {
   handleDelete(event) {
     const parent = $(event.target).parent().html();
     const discardText = parent.substr(0, parent.indexOf('<'));
-    const discardIndex = this.ingredientsSelected.indexOf(discardText);
-    if (discardIndex > -1) { this.ingredientsSelected.splice(discardIndex, 1); }
+    this.ingredientsSelected = this.ingredientsSelected.filter(item => {
+      if (typeof item === 'string' && item === discardText) {
+        return false;
+      }
+      else if (typeof item === 'object' && item.tag === discardText) {
+        return false;
+      }
+      return true;
+    });
   }
 
-  parseListIngredientsToUrl(ingredients) { // Do not delete, we are using this
+  parseListIngredientsToUrl() { // Do not delete, we are using this
+    const ingredientsArray = this.ingredientsSelected.map(item => (typeof item === 'string') ? item : item.tag);
     let ingredientsUrl = '';
-    const ingredientsStr = ingredients.join(',');
+    const ingredientsStr = ingredientsArray.join(',');
     ingredientsUrl += ingredientsStr;
     this.router.navigate(['/recipes'], { queryParams: { ingredients: ingredientsUrl } });
   }

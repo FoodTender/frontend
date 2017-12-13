@@ -23,4 +23,6 @@
         <a [routerLink]="['/auth/signup']" class="btn waves-effect white grey-text darken-text-2 button-custom-2">Sign Up</a>
 </div>
 
-<app-ingredients-searcher></app-ingredients-searcher>
+<div *ngIf="ingredients">
+    <app-ingredients-searcher [ingredients]="ingredients"></app-ingredients-searcher>
+</div>

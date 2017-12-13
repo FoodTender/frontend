@@ -16,12 +16,13 @@
       </select>
     </div> -->
 
-    <!-- Autocomplete ingredients input -->
-    <div class="chips chips-ingredients" type="text" (click)="handleDelete($event)"></div>
+    <div class="searcher-wrapper">
+      <!-- Autocomplete ingredients input -->
+      <div class="chips chips-ingredients" type="text" (click)="handleDelete($event)"></div>
+    </div>
 
-    <!-- Search recipes button -->
-    <a class="btn-floating btn-large waves-effect waves-light teal" (click)="parseListIngredientsToUrl(ingredientsSelected)">
-      <i class="material-icons prefix">check</i>
-    </a>
+          <!-- Search recipes button -->
+      <a class="btn-floating btn-large waves-effect waves-light teal submit-ingredients" (click)="parseListIngredientsToUrl()">
+      <i class="material-icons prefix">check</i></a>
   </div>
 </div>

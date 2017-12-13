@@ -18,8 +18,8 @@ export class IngredientService {
   }
 
 
-  getBasicIngredients() {
-    return this.http.get(`${baseUrl}/ingredients/basic`)
+  getAllIngredients() {
+    return this.http.get(`${baseUrl}/ingredients/all`)
       .map((res: Response) => res.json());
   }
 

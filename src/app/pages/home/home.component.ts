@@ -10,7 +10,7 @@ declare var $: any;
 })
 
 export class HomeComponent implements OnInit {
-  ingredients = null;
+  ingredients = null
 
   constructor(private ingredientService: IngredientService) { }
 
@@ -24,6 +24,13 @@ export class HomeComponent implements OnInit {
     $('.btn').on('click touchstart', e => {
       console.log('working');
     });
+
+    this.ingredientService.getAllIngredients()
+      .subscribe((ingredients) => {
+        this.ingredients = ingredients.filter((ingredient) => {
+          return ingredient.basic;
+        });
+      });
   }
 
 }
