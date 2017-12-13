@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
 
     $('.carousel.carousel-slider').carousel({ fullWidth: true });
     $('.btn').on('click touchstart', e => {
-      console.log('working');
     });
 
     this.ingredientService.getAllIngredients()
@@ -42,7 +41,6 @@ export class HomeComponent implements OnInit {
   }
 
   handleLogout() {
-    console.log('logout');
     this.authService.logout()
       .subscribe(() => this.router.navigate(['/home']));
   }
