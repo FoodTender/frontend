@@ -23,7 +23,7 @@ export class AuthService {
 
   constructor(private http: Http) { }
 
-  private setUser(user: User = null) {
+  setUser(user: User = null) {
     this.loaded = true;
     this.user = user;
     this.userChange.next(user);

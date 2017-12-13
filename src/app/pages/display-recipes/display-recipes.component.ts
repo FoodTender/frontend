@@ -23,7 +23,7 @@ export class DisplayRecipesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.paramsSub = this.activatedRoute // Maybe change to new function getIngredientsUrl()
+    this.paramsSub = this.activatedRoute // Change to new function getIngredientsUrl() (?)
       .queryParams
       .subscribe(params => {
         const ingredientsStr = params.ingredients || '';

@@ -1,26 +1,28 @@
-
+<!-- Carousel slider -->
 <div class="carousel carousel-slider center" data-indicators="true">
     <div class="carousel-item">
-         <img src="/assets/images/food-background-2.jpg">
-     </div>
-
-     <div class="carousel-item">
-           <img src="/assets/images/food-background-3.jpg">
+        <img src="/assets/images/food-background-2.jpg">
     </div>
 
-      <div class="carousel-item">
-          <img src="/assets/images/food-background-1.jpg">
-      </div>
+    <div class="carousel-item">
+        <img src="/assets/images/food-background-3.jpg">
+    </div>
+
+    <div class="carousel-item">
+        <img src="/assets/images/food-background-1.jpg">
+    </div>
 </div>
 
-<!-- <div class="my-own-buttons">
-    <a [routerLink]="['/auth/login']" class="btn waves-effect white-text darken-text-2 button-custom-1 ">Your Bookmarks</a>
-    <a [routerLink]="['/auth/signup']" class="btn waves-effect white-text darken-text-2 button-custom-2 red darken-4">Logout</a>
-</div> -->
+<!-- If user logged in > Show Your bookmakrs / Logout -->
+<div *ngIf="user" class="my-own-buttons">
+    <a [routerLink]="['/me/bookmarks']" class="btn waves-effect white-text darken-text-2 button-custom-1 ">Your Bookmarks</a>
+    <a [routerLink]="['/home']" (click)="handleLogout()" class="btn waves-effect white-text darken-text-2 button-custom-2 red darken-4">Logout</a>
+</div>
 
-<div class="my-own-buttons">
-        <a [routerLink]="['/auth/login']" class="btn waves-effect white grey-text darken-text-2 button-custom-1">Log In</a>
-        <a [routerLink]="['/auth/signup']" class="btn waves-effect white grey-text darken-text-2 button-custom-2">Sign Up</a>
+<!-- If user not logged in > Show Sign up / Log in -->
+<div *ngIf="!user" class="my-own-buttons">
+    <a [routerLink]="['/auth/login']" class="btn waves-effect white grey-text darken-text-2 button-custom-1">Log In</a>
+    <a [routerLink]="['/auth/signup']" class="btn waves-effect white grey-text darken-text-2 button-custom-2">Sign Up</a>
 </div>
 
 <div *ngIf="ingredients">
