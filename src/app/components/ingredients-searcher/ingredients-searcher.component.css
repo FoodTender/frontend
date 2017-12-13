@@ -5,7 +5,17 @@
     padding: 0;
 
 }
+:host-context(.display-recipes) .chosing-ingredients{
+    flex-direction: column;
+  
 
+}
+
+
+
+/* .searcher-wrapper{
+    background-color: blue;
+} */
 
 .chips-ingredients{
     z-index: 10;
@@ -50,6 +60,28 @@
     }
     .food-field {
         padding: 0;
+    }
+    :host-context(.display-recipes) .chosing-ingredients{
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    
+    }
+    :host-context(.display-recipes) .ingredients-pick-desktop{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+    :host-context(.display-recipes) .submit-ingredients{
+        margin-left: 10px;
+    }
+    
+    :host-context(.display-recipes) .searcher-wrapper{
+        width: 90%;
     }
 
 }

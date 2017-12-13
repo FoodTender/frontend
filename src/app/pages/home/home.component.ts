@@ -32,6 +32,13 @@ export class HomeComponent implements OnInit {
     $('.btn').on('click touchstart', e => {
       console.log('working');
     });
+
+    this.ingredientService.getAllIngredients()
+      .subscribe((ingredients) => {
+        this.ingredients = ingredients.filter((ingredient) => {
+          return ingredient.basic;
+        });
+      });
   }
 
   handleLogout() {

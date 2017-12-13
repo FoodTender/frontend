@@ -21,9 +21,8 @@ export class IngredientService {
   }
 
 
-  getBasicIngredients() {
-    options.withCredentials = true;
-    return this.http.get(`${baseUrl}/ingredients/basic`, options)
+  getAllIngredients() {
+    return this.http.get(`${baseUrl}/ingredients/all`)
       .map((res: Response) => res.json());
   }
 

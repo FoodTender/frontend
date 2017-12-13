@@ -13,7 +13,7 @@ declare var $: any;
 export class DisplayRecipesComponent implements OnInit {
   @Input() recipes = null;
   paramsSub: any;
-  ingredients = '';
+  ingredients = null;
   ingredientsSelected = [];
 
   constructor(
@@ -26,14 +26,18 @@ export class DisplayRecipesComponent implements OnInit {
     this.paramsSub = this.activatedRoute // Change to new function getIngredientsUrl() (?)
       .queryParams
       .subscribe(params => {
-        this.ingredients += params.ingredients || 0;
+        const ingredientsStr = params.ingredients || '';
+        const ingredientsArray = ingredientsStr.split(",");
+        this.ingredients = ingredientsArray.map(name => {
+          return {name: name}
+        });
+        this.searchRecipes();
       });
-
-    this.searchRecipes();
   }
 
   searchRecipes() {
-    this.recipeService.getRecipes(this.ingredients)
+    const ingredientsFilter = this.ingredients.map(item => item.name);
+    this.recipeService.getRecipes(ingredientsFilter)
       .subscribe((recipes) => {
         this.recipes = recipes;
       });
