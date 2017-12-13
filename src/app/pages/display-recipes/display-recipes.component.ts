@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { RecipeService } from '../../services/recipe.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-display-recipes',
   templateUrl: './display-recipes.component.html',
@@ -12,6 +14,7 @@ export class DisplayRecipesComponent implements OnInit {
   @Input() recipes = null;
   paramsSub: any;
   ingredients = '';
+  ingredientsSelected = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,16 +23,20 @@ export class DisplayRecipesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.paramsSub = this.activatedRoute
+    this.paramsSub = this.activatedRoute // Maybe change to new function getIngredientsUrl()
       .queryParams
       .subscribe(params => {
         this.ingredients += params.ingredients || 0;
       });
-    console.log('Ingredients on init: ' + this.ingredients);
+
     this.searchRecipes();
+
+    $('.materialboxed').materialbox(); // Initialize materialize media
   }
 
   searchRecipes() {
+    console.log(this.ingredients);
+
     this.recipeService.getRecipes(this.ingredients)
       .subscribe((recipes) => {
         this.recipes = recipes;

@@ -1,6 +1,5 @@
 <div class="ingredients-pick-desktop ingredients-pick-mobile">
   <div class="chosing-ingredients">
-
     <!-- Cooking time select -->
     <!-- <div class="row ingredients-searcher-component">
       <select id="time-drop-down">
@@ -17,33 +16,12 @@
       </select>
     </div> -->
 
-
-    <!-- <div class="row">
-      <div class="col s12">
-        <div class="row">
-          <div class="input-field">
-            <i class="material-icons prefix">restaurant</i>
-            <input type="text" [(ngModel)]="ingredientValue" id="autocomplete-input" class="autocomplete" (keyup)="findIngredient()"
-              name="ingredient">
-            <label for="autocomplete-input">Your fridge ingredients here</label>
-          </div>      
-        </div>
-      </div>
-    </div> -->
+    <!-- Autocomplete ingredients input -->
     <div class="chips chips-ingredients" type="text" (click)="handleDelete($event)"></div>
-
-    <!-- <div *ngFor="let ingredient of ingredientsSelected" class="ingredients-chosen chips">
-      <div class="chip">
-        {{ ingredient }}
-        <i class="close material-icons">close</i>
-      </div>
-    </div> -->
 
     <!-- Search recipes button -->
     <a class="btn-floating btn-large waves-effect waves-light teal" (click)="parseListIngredientsToUrl(ingredientsSelected)">
       <i class="material-icons prefix">check</i>
     </a>
-
-
   </div>
 </div>
