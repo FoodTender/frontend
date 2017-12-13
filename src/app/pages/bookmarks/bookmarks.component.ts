@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { BookmarkService } from '../../services/bookmark.service';
 
 @Component({
@@ -17,6 +16,7 @@ export class BookmarksComponent implements OnInit {
   }
 
   returnBookmarks() {
+    console.log('asd');
     this.bookmarkService.getBookmarks()
       .subscribe((bookmarks) => {
         this.bookmarks = bookmarks;

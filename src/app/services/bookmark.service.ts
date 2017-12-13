@@ -14,8 +14,10 @@ export class BookmarkService {
   ) { }
 
   getBookmarks() {
+    console.log('asdfh');
     options.withCredentials = true;
-    return this.http.get(`${baseUrl}/bookmarks`, options)
+    console.log(`${baseUrl}/me/bookmarks`);
+    return this.http.get(`${baseUrl}/me/bookmarks`, options)
       .map((res: Response) => res.json());
   }
 
