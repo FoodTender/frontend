@@ -52,7 +52,6 @@ export class IngredientsSearcherComponent implements OnInit {
         });
 
         $('.chips-ingredients').on('chip.add', function (e, chip) {
-          // console.log(chip.tag);
           self.addIngredientToSearcher(chip.tag); // Add user input to ingredientsSelected[]
         });
 

@@ -23,7 +23,7 @@
       </p>
       <ul>
         <li *ngFor="let ingredient of recipe.ingredients">
-          {{ ingredient.ingredient }} {{ ingredient.quantity }} {{ ingredient.unit }}
+          {{ ingredient.ingredient.name }} {{ ingredient.quantity }} {{ ingredient.unit }}
         </li>
       </ul>
       <p>{{ recipe.directions }}</p>
