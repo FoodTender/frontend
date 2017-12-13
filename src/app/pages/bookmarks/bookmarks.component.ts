@@ -16,12 +16,9 @@ export class BookmarksComponent implements OnInit {
   }
 
   returnBookmarks() {
-    console.log('asd');
     this.bookmarkService.getBookmarks()
       .subscribe((bookmarks) => {
         this.bookmarks = bookmarks;
       });
-    console.log(this.bookmarks);
   }
-
 }

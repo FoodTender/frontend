@@ -29,7 +29,6 @@ import { AuthService } from './services/auth.service';
 import { RequireAuthGuard } from './guards/require-auth.guard';
 import { AnonGuard } from './guards/anon.guard';
 import { AuthInitGuard } from './guards/auth-init.guard';
-import { BookmarksListComponent } from './components/bookmarks-list/bookmarks-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -53,8 +52,7 @@ const routes: Routes = [
     RecipesListComponent,
     DisplayRecipesComponent,
     RecipeDetailComponent,
-    BookmarksComponent,
-    BookmarksListComponent
+    BookmarksComponent
   ],
   imports: [
     BrowserModule,

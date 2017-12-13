@@ -9,14 +9,10 @@ const options = new RequestOptions();
 @Injectable()
 export class BookmarkService {
 
-  constructor(
-    private http: Http
-  ) { }
+  constructor(private http: Http) { }
 
   getBookmarks() {
-    console.log('asdfh');
     options.withCredentials = true;
-    console.log(`${baseUrl}/bookmarks`);
     return this.http.get(`${baseUrl}/bookmarks`, options)
       .map((res: Response) => res.json());
   }
