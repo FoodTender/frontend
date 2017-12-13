@@ -52,7 +52,6 @@ export class AuthService {
   logout() {
     const options = new RequestOptions();
     options.withCredentials = true;
-    console.log(apiUrl + '/logout');
     return this.http.post(apiUrl + '/logout', {}, options)
       .map(res => {
         this.setUser();
