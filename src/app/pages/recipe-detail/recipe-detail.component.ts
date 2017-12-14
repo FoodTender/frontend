@@ -38,18 +38,22 @@ export class RecipeDetailComponent implements OnInit {
     this.recipeService.getRecipeDetail(this.recipeId)
       .subscribe((recipe) => {
         this.recipe = recipe;
-    });
+      });
+
     // $('.delete-bookmarked').hide();
     // $('.delete-bookmarked').click();
 
   }
 
-  addBookmark(recipeId, event) {
-    console.log('recipeId ', recipeId);
-    this.bookmarkService.addBookmark(recipeId);
-    console.log(event.target);
-    $(event.target).hide();
+  addBookmark(event) {
+    console.log('recipeId: ', this.recipeId);
+
+    this.bookmarkService.addBookmark(this.recipeId)
+      .subscribe((recipe) => {
+        this.recipe = recipe;
+      });
     $('.delete-bookmark').removeClass('hide');
+    $(event.target).hide();
   }
 
   deleteBookmark(recipeId, event) {

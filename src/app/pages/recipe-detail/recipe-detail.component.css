@@ -66,6 +66,15 @@
     margin-left: 10px;
 }
 
+.login-button-bookmark{
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+
 .no-bookmark-button > i {
     margin-left: 5px;
 }
