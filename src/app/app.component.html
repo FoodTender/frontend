@@ -12,8 +12,8 @@
     <div class="row customized-row">
       <div class="col customized-col">
         <div class="card-panel blue-grey lighten-5">
-          <span class="grey-text">{{user.username}}
-          </span>
+          <a [routerLink]="['/bookmarks']" class="grey-text">Hello {{ user.username | uppercase }} ! 
+          </a>
         </div>
       </div>
     </div>

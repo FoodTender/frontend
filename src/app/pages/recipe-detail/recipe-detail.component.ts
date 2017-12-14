@@ -52,15 +52,14 @@ export class RecipeDetailComponent implements OnInit {
       .subscribe((recipe) => {
         this.recipe = recipe;
       });
-
-    $(event.target).toggle();
     $('.delete-bookmark').removeClass('hide');
+    $(event.target).hide();
   }
 
   deleteBookmark(recipeId, event) {
+    console.log(event.target);
     $('.delete-bookmark').addClass('hide');
-    $('.add-bookmark').toggle();
-
+    $('.add-bookmark').show();
   }
 
 
