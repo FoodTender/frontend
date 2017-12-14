@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { BookmarkService } from '../../services/bookmark.service';
 
 @Component({
@@ -22,5 +21,4 @@ export class BookmarksComponent implements OnInit {
         this.bookmarks = bookmarks;
       });
   }
-
 }

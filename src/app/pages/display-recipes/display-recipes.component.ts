@@ -27,9 +27,9 @@ export class DisplayRecipesComponent implements OnInit {
       .queryParams
       .subscribe(params => {
         const ingredientsStr = params.ingredients || '';
-        const ingredientsArray = ingredientsStr.split(",");
+        const ingredientsArray = ingredientsStr.split(',');
         this.ingredients = ingredientsArray.map(name => {
-          return {name: name}
+          return { name: name };
         });
         this.searchRecipes();
       });

@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+import { AuthService } from '../../services/auth.service';
 import { RecipeService } from '../../services/recipe.service';
+import { BookmarkService } from '../../services/bookmark.service';
 
 declare var $: any;
 
@@ -15,21 +17,33 @@ declare var $: any;
 export class RecipeDetailComponent implements OnInit {
   recipeId = null;
   recipe = null;
+  user = null;
 
   constructor(
     private recipeService: RecipeService,
-    private activatedRoute: ActivatedRoute
+    private bookmarkService: BookmarkService,
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
-    // Get recipe id from url
-    this.recipeId = this.activatedRoute.snapshot.paramMap.get('recipeId');
+    this.authService.me();
+    this.authService.userChange$.subscribe((user) => {
+      this.user = user;
+    });
 
-    // Go to service > get recipes details
+    this.recipeId = this.activatedRoute.snapshot.paramMap.get('recipeId'); // Get recipe id from url
+
+    // Get recipes details
     this.recipeService.getRecipeDetail(this.recipeId)
       .subscribe((recipe) => {
         this.recipe = recipe;
       });
+  }
+
+  addBookmark(recipeId) {
+    console.log('recipeId ', recipeId);
+    this.bookmarkService.addBookmark(recipeId);
   }
 
 

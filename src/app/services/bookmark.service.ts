@@ -9,14 +9,17 @@ const options = new RequestOptions();
 @Injectable()
 export class BookmarkService {
 
-  constructor(
-    private http: Http
-  ) { }
+  constructor(private http: Http) { }
 
   getBookmarks() {
     options.withCredentials = true;
     return this.http.get(`${baseUrl}/bookmarks`, options)
       .map((res: Response) => res.json());
+  }
+
+  addBookmark(recipeId) {
+    // options.withCredentials = true;
+    // return this.http.get(`${baseUrl}/bookmarks/add/:recipeId`, options);
   }
 
 }
