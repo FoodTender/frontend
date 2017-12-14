@@ -1,3 +1,4 @@
+{{recipe | json}}
 <div class="row d-flex">
   <!-- Left side: title, directions, ingredients -->
   <div class="col s12 m6" *ngIf="recipe">
@@ -31,6 +32,10 @@
   </div>
 
   <!-- Right side: image -->
+  <div *ngIf="user">
+    <button (click)="addBookmark(recipe._id)">Bookmark this recipe</button>
+  </div>
+
   <div class="col s12 m6" *ngIf="recipe">
     <img [src]="recipe.picture" class="pic" alt="recipe-img">
   </div>

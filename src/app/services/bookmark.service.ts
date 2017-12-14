@@ -17,5 +17,10 @@ export class BookmarkService {
       .map((res: Response) => res.json());
   }
 
+  addBookmark(recipeId) {
+    // options.withCredentials = true;
+    // return this.http.get(`${baseUrl}/bookmarks/add/:recipeId`, options);
+  }
+
 }
 
