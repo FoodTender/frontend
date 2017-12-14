@@ -1,12 +1,9 @@
-{{ bookmarks == null}}
-
 <!-- Condition to show the bookmarks or a message if no bookmarks yet -->
-<div *ngIf="bookmarks.bookmarks !== null && bookmarks.bookmarks.length > 0; then bookmarksTemplate else messageTemplate "></div>
+<div *ngIf="bookmarksObj !== null; then bookmarksTemplate else messageTemplate "></div>
 
 <ng-template #bookmarksTemplate>
   <ul class="our-own-container">
-    {{ bookmarks.bookmarks == null}}
-    <li class="recipe-container" *ngFor="let bookmark of bookmarks.bookmarks">
+    <li class="recipe-container" *ngFor="let bookmark of bookmarksObj.bookmarks">
       <app-recipes-list class="recipe-itself" [recipe]="bookmark"></app-recipes-list>
     </li>
   </ul>

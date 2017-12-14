@@ -7,7 +7,7 @@ import { BookmarkService } from '../../services/bookmark.service';
   styleUrls: ['./bookmarks.component.css']
 })
 export class BookmarksComponent implements OnInit {
-  bookmarks = null;
+  bookmarksObj = null;
 
   constructor(private bookmarkService: BookmarkService) { }
 
@@ -18,7 +18,7 @@ export class BookmarksComponent implements OnInit {
   returnBookmarks() {
     this.bookmarkService.getBookmarks()
       .subscribe((bookmarks) => {
-        this.bookmarks = bookmarks;
+        this.bookmarksObj = bookmarks;
       });
   }
 }
