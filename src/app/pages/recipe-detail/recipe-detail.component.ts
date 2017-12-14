@@ -48,14 +48,14 @@ export class RecipeDetailComponent implements OnInit {
     console.log('recipeId ', recipeId);
     this.bookmarkService.addBookmark(recipeId);
     console.log(event.target);
-    $(event.target).toggle();
+    $(event.target).hide();
     $('.delete-bookmark').removeClass('hide');
   }
 
   deleteBookmark(recipeId, event) {
+    console.log(event.target);
     $('.delete-bookmark').addClass('hide');
-    $('.add-bookmark').toggle();
-
+    $('.add-bookmark').show();
   }
 
 

@@ -5,13 +5,16 @@
     <h2 class="title comfortaa">{{ recipe.name }}</h2>
       <!-- Right side: image -->
     <div class="add-bookmark" *ngIf="user">
-      <button class="yellow bookmark-button comfortaa" (click)="addBookmark(recipe._id, $event)">Bookmark me! <i class="material-icons ">star_border</i></button>
+      <button class="bookmark-button comfortaa" (click)="addBookmark(recipe._id, $event)">Bookmark me!<i class="material-icons ">star_border</i></button>
     </div>
 
     <div class="delete-bookmark hide" *ngIf="user">
-      <button class="yellow bookmark-button comfortaa" (click)="deleteBookmark(recipe._id, $event)">I'm a bookmark! <i class="material-icons ">star</i></button>
+      <button class="no-bookmark-button comfortaa" (click)="deleteBookmark(recipe._id, $event)">I'm a bookmark!<i class="material-icons ">star</i></button>
     </div>
 
+    <div class="login-to-bookmark" *ngIf="!user">
+      <button class="blue-grey lighten-5 bookmark-button comfortaa" [routerLink]="['/auth/login']">Login to Bookmark</button>
+    </div>
 
     <div class="text">
       <div class="recipe-atributes-wrapper">
