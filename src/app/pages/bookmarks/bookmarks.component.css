@@ -21,7 +21,8 @@
     font-size: 2em;
     justify-content: center;
 	align-items: center;
-	align-content: center;
+    align-content: center;
+    margin-top: 70px;
 }
 
 @media (orientation: landscape){
