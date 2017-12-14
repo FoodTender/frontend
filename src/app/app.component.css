@@ -1,5 +1,4 @@
 .nav-bar {
-   
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -28,8 +27,7 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 60vh;
-
+    min-height: 67vh;
 }
 
 .contacts{
@@ -39,7 +37,7 @@ font-weight: 100;
 }
 
 .grey-text{
-    font-weight: 100;
+    font-weight: unset;
 }
 
 .mobile-disappear{
@@ -47,7 +45,30 @@ font-weight: 100;
 }
 
 
-.page-footer{
+.card-panel{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* .if-user-logged-in{
+    position: fixed;
+} */
+
+.customized-row{
+    margin-bottom: 0;
+
+
+}
+
+.customized-col{
+    width: 100%;
+    padding: 0;
 }
 
 @media (orientation: landscape){
