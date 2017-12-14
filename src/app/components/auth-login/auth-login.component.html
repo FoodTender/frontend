@@ -1,24 +1,25 @@
 <div class="flexbox-container">
-<form class="login-form form-mobile-style" [ngClass]="{'has-error': error}" novalidate>
+  <form class="login-form form-mobile-style" [ngClass]="{'has-error': error}" novalidate>
 
-  <div class="form-group field" [ngClass]="{'has-error': error}">
-    <label>Username</label>
-    <input type="text" [(ngModel)]="user.username" name="username" required/>
-  </div>
+    <div class="form-group field" [ngClass]="{'has-error': error}">
+      <label>Username</label>
+      <input type="text" [(ngModel)]="user.username" name="username" required/>
+    </div>
 
-  <div class="form-group field" [ngClass]="{'has-error': error}">
-    <label>Password</label>
-    <input type="password" [(ngModel)]="user.password" name="password" required/>
-  </div>
+    <div class="form-group field" [ngClass]="{'has-error': error}">
+      <label>Password</label>
+      <input type="password" [(ngModel)]="user.password" name="password" required/>
+    </div>
 
-  <div class="form-group actions submit-button-flexbox">
+    <div class="form-group actions submit-button-flexbox">
       <div class="already-account">
-          <p>In case you already had an account,<a class="foodtender-green"[routerLink]="['/auth/signup']"> Signup</a></p>
+        <p>In case you already had an account,
+          <a class="foodtender-green" [routerLink]="['/auth/signup']"> Signup</a>
+        </p>
       </div>
-    <p *ngIf="error" class="error">{{error}}</p>
-    <!-- <button (click)="login()">login</button> -->
-    <a class="submit-button-login waves-effect waves-light btn-large" (click)="login()">login</a>
-  </div>
+      <p *ngIf="error" class="error">{{error}}</p>
+      <a class="submit-button-login waves-effect waves-light btn-large" (click)="login()">login</a>
+    </div>
 
-</form>
+  </form>
 </div>

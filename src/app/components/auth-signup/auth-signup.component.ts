@@ -10,13 +10,11 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./auth-signup.component.css']
 })
 export class AuthSignupComponent implements OnInit {
-
   user = new User({
     username: '',
     email: '',
     password: ''
   });
-
   error: string;
 
   constructor(

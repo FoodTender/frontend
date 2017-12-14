@@ -7,7 +7,6 @@
     top: 27%;
 }
 
-
 .button-custom-1{
     margin-right: 5px;
 }
@@ -16,11 +15,9 @@
     margin-left: 5px;
 }
 
-
 @media (orientation: landscape){
     .my-own-buttons{
         top: 90%;
-        
     }
 }
 

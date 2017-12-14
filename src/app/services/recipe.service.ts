@@ -1,5 +1,4 @@
 import { environment } from '../../environments/environment';
-
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions } from '@angular/http';
 import { AuthService } from './auth.service';
@@ -17,7 +16,6 @@ export class RecipeService {
 
   getRecipes(ingredients) {
     options.withCredentials = true;
-    // const ingredientsString = this.parseListIngredientsToUrl(ingredients);
     return this.http.get(`${baseUrl}/recipes/?ingredients=${ingredients}`, options)
       .map((res: Response) => res.json());
   }

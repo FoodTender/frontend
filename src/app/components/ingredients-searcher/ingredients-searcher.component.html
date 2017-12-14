@@ -1,28 +1,12 @@
 <div class="ingredients-pick-desktop ingredients-pick-mobile">
   <div class="chosing-ingredients">
-    <!-- Cooking time select -->
-    <!-- <div class="row ingredients-searcher-component">
-      <select id="time-drop-down">
-        <option value="" disabled selected>How much time do you have?</option>
-        <option value="5">5 min</option>
-        <option value="15">15 min</option>
-        <option value="30">30 min</option>
-        <option value="45">45 min</option>
-        <option value="60">1h</option>
-        <option value="90">1h 30 min</option>
-        <option value="120">2h</option>
-        <option value="150">2h 30 min</option>
-        <option value="180">3h</option>
-      </select>
-    </div> -->
-
     <div class="searcher-wrapper">
       <!-- Autocomplete ingredients input -->
       <div class="chips chips-ingredients" type="text" (click)="handleDelete($event)"></div>
     </div>
-
-          <!-- Search recipes button -->
-      <a class="btn-floating btn-large waves-effect waves-light teal submit-ingredients" (click)="parseListIngredientsToUrl()">
-      <i class="material-icons prefix">check</i></a>
+    <!-- Search recipes button -->
+    <a class="btn-floating btn-large waves-effect waves-light teal submit-ingredients" (click)="parseListIngredientsToUrl()">
+      <i class="material-icons prefix">check</i>
+    </a>
   </div>
 </div>

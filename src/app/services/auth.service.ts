@@ -13,12 +13,10 @@ const apiUrl = environment.apiUrl + '/auth';
 
 @Injectable()
 export class AuthService {
-
   private loaded = false;
   private user: User;
   private userChange: Subject<User | null> = new Subject();
 
-  // Observable string stream
   userChange$ = this.userChange.asObservable();
 
   constructor(private http: Http) { }
@@ -60,9 +58,6 @@ export class AuthService {
   }
 
   me() {
-    // if (this.loaded) {
-    //   return Promise.resolve(this.user);
-    // }
     const options = new RequestOptions();
     options.withCredentials = true;
     return this.http.get(apiUrl + '/me', options)

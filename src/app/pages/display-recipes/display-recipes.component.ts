@@ -14,16 +14,14 @@ export class DisplayRecipesComponent implements OnInit {
   @Input() recipes = null;
   paramsSub: any;
   ingredients = null;
-  ingredientsSelected = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
     private recipeService: RecipeService
   ) { }
 
   ngOnInit() {
-    this.paramsSub = this.activatedRoute // Change to new function getIngredientsUrl() (?)
+    this.paramsSub = this.activatedRoute
       .queryParams
       .subscribe(params => {
         const ingredientsStr = params.ingredients || '';

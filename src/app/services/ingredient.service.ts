@@ -7,14 +7,12 @@ import 'rxjs/add/operator/map';
 
 const baseUrl = environment.apiUrl;
 const options = new RequestOptions();
-
 @Injectable()
 export class IngredientService {
 
   constructor(private http: Http) { }
 
-  // Get ingredients on autocomplete input
-  getIngredients(ingredient) {
+  getIngredients(ingredient) { // Get ingredients on autocomplete input
     options.withCredentials = true;
     return this.http.get(`${baseUrl}/ingredients/?terms=${ingredient}`, options)
       .map((res: Response) => res.json());

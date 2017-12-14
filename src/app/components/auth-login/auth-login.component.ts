@@ -14,7 +14,6 @@ export class AuthLoginComponent implements OnInit {
     username: '',
     password: ''
   });
-
   error: string;
 
   constructor(
@@ -22,16 +21,14 @@ export class AuthLoginComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   login() {
     this.error = null;
     this.auth.login(this.user)
       .subscribe(
-        () => this.router.navigate(['/']),
-        (err) => this.error = err
+      () => this.router.navigate(['/']),
+      (err) => this.error = err
       );
   }
-
 }

@@ -1,10 +1,8 @@
 <div class="row d-flex">
-  <!-- Left side: title, directions, ingredients -->
+
+  <!-- Left side -->
   <div class="col s12 m6" *ngIf="recipe">
-
     <h2 class="title comfortaa">{{ recipe.name }}</h2>
-
-    <!-- Right side: image -->
     <div class="bookmark-btn" *ngIf="user">
       <div class="add-bookmark" *ngIf="user.bookmarks.indexOf(recipe._id) === -1">
         <button class="bookmark-button comfortaa" (click)="addBookmark()">Bookmark me!
@@ -17,18 +15,6 @@
         </button>
       </div>
     </div>
-    <!-- <div class="add-bookmark" *ngIf="user">
-      <button class="bookmark-button comfortaa" (click)="addBookmark()">Bookmark me!
-        <i class="material-icons ">star_border</i>
-      </button>
-    </div>
-
-    <div class="delete-bookmark hide" *ngIf="user">
-      <button class="no-bookmark-button comfortaa" (click)="deleteBookmark()">I'm a bookmark!
-        <i class="material-icons ">star</i>
-      </button>
-    </div> -->
-
     <div class="login-to-bookmark" *ngIf="!user">
       <button class="blue-grey lighten-5 login-button-bookmark comfortaa" [routerLink]="['/auth/login']">Login to Bookmark</button>
     </div>
@@ -62,8 +48,7 @@
     </div>
   </div>
 
-
-
+  <!-- Right side -->
   <div class="col s12 m6" *ngIf="recipe">
     <img [src]="recipe.picture" class="pic" alt="recipe-img">
   </div>

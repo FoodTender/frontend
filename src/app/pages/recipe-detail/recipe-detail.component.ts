@@ -34,8 +34,7 @@ export class RecipeDetailComponent implements OnInit {
 
     this.recipeId = this.activatedRoute.snapshot.paramMap.get('recipeId'); // Get recipe id from url
 
-    // Get recipes details
-    this.recipeService.getRecipeDetail(this.recipeId)
+    this.recipeService.getRecipeDetail(this.recipeId) // On init, get data
       .subscribe((recipe) => {
         this.recipe = recipe;
       });
@@ -44,21 +43,9 @@ export class RecipeDetailComponent implements OnInit {
   addBookmark() {
     this.bookmarkService.addBookmark(this.recipeId)
       .subscribe(() => this.user.bookmarks.push(this.recipeId));
-    //   $('.bookmark-btn').append(`<div class="add-bookmark" *ngIf="user.bookmarks.indexOf(recipe._id) === -1">
-    //   <button class="bookmark-button comfortaa" (click)="addBookmark()">Bookmark me!
-    //     <i class="material-icons">star_border</i>
-    //   </button>
-    // </div>`);
   }
 
   deleteBookmark() {
-    //   $('.bookmark-btn').append(`<div class="delete-bookmark">
-    //   <button class="no-bookmark-button comfortaa" (click)="deleteBookmark()">I'm a bookmark!
-    //     <i class="material-icons">star</i>
-    //   </button>
-    // </div>`);
-
-    // $('.add-bookmark').css('position', 'absolute');
     this.bookmarkService.removeBoomark(this.recipeId)
       .subscribe(() => {
         const index = this.user.bookmarks.indexOf(this.recipeId);

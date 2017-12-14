@@ -13,17 +13,14 @@
     color: white;
 }
 
-
 .login{
     margin-right: 30px;
 }
-
 
 .navbar-logo {
     height: 30px;
     display: flex;
 }
-
 
 body {
     display: flex;
@@ -32,9 +29,9 @@ body {
 }
 
 .contacts{
-display: flex;
-flex-direction: row;
-font-weight: 100;
+    display: flex;
+    flex-direction: row;
+    font-weight: 100;
 }
 
 .grey-text{
@@ -44,7 +41,6 @@ font-weight: 100;
 .mobile-disappear{
     display: none;
 }
-
 
 .card-panel{
     padding: 0;
@@ -56,10 +52,6 @@ font-weight: 100;
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
-/* .if-user-logged-in{
-    position: fixed;
-} */
 
 .customized-row{
     margin-bottom: 0;
@@ -74,10 +66,6 @@ font-weight: 100;
 }
 
 @media (orientation: landscape){
-    /* .nav-bar {
-        justify-content: space-between;
-    } */
-
     .mobile-disappear{
         display: inline;
     }
