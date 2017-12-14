@@ -18,8 +18,12 @@ export class BookmarkService {
   }
 
   addBookmark(recipeId) {
-    // options.withCredentials = true;
-    // return this.http.get(`${baseUrl}/bookmarks/add/:recipeId`, options);
+    console.log('addBookmark: ', recipeId);
+    console.log(`${baseUrl}/bookmarks/${recipeId}/add`);
+
+    options.withCredentials = true;
+    return this.http.put(`${baseUrl}/bookmarks/${recipeId}/add`, {}, options)
+      .map((res: Response) => res.json());
   }
 
 }

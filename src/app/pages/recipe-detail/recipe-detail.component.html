@@ -3,13 +3,17 @@
   <div class="col s12 m6" *ngIf="recipe">
 
     <h2 class="title comfortaa">{{ recipe.name }}</h2>
-      <!-- Right side: image -->
+    <!-- Right side: image -->
     <div class="add-bookmark" *ngIf="user">
-      <button class="yellow bookmark-button comfortaa" (click)="addBookmark(recipe._id, $event)">Bookmark me! <i class="material-icons ">star_border</i></button>
+      <button class="yellow bookmark-button comfortaa" (click)="addBookmark($event)">Bookmark me!
+        <i class="material-icons ">star_border</i>
+      </button>
     </div>
 
     <div class="delete-bookmark hide" *ngIf="user">
-      <button class="yellow bookmark-button comfortaa" (click)="deleteBookmark(recipe._id, $event)">I'm a bookmark! <i class="material-icons ">star</i></button>
+      <button class="yellow bookmark-button comfortaa" (click)="deleteBookmark(recipe._id, $event)">I'm a bookmark!
+        <i class="material-icons ">star</i>
+      </button>
     </div>
 
 
@@ -33,7 +37,9 @@
       </div>
       <ul class="ingredients-list">
         <li *ngFor="let ingredient of recipe.ingredients">
-           <span>{{ ingredient.quantity }}</span> <span>{{ ingredient.unit }}</span> <span class="foodtender-red comfortaa">{{ ingredient.ingredient.name }}</span>
+          <span>{{ ingredient.quantity }}</span>
+          <span>{{ ingredient.unit }}</span>
+          <span class="foodtender-red comfortaa">{{ ingredient.ingredient.name }}</span>
         </li>
       </ul>
       <p>{{ recipe.directions }}</p>
