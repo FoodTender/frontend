@@ -7,18 +7,18 @@
     </nav>
   </div>
 
-  <!-- <div *ngIf=''> -->
+  <div *ngIf='user'>
   <div class="if-user-logged-in">
     <div class="row customized-row">
       <div class="col customized-col">
-        <div class="card-panel grey lighten-2">
-          <span class="grey-text">cristina@gmail.com
+        <div class="card-panel blue-grey lighten-5">
+          <span class="grey-text">{{user.username}}
           </span>
         </div>
       </div>
     </div>
   </div>
-<!-- </div> -->
+</div>
 
 </header>
 
@@ -27,7 +27,7 @@
     <router-outlet></router-outlet>
   </div>
 </body>
-{{user | json}}
+
 <footer class="page-footer teal">
   <div class="container">
     <div class="row">

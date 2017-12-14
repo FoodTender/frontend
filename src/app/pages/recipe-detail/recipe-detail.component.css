@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
+    margin-top: 40px;
 }
 
 .pic{
@@ -28,8 +29,10 @@
     margin-right: 30px;
     display: flex;
     flex-direction: row;
+}
 
-
+.title{
+    margin: 0 10px;
 }
 
 .recipe-atribute{
@@ -38,6 +41,25 @@
 
 .title {
     font-size: 2.8rem;
+    margin-left: 0;
+}
+
+.bookmark-button{
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.bookmark-button > i {
+    margin-left: 5px;
+}
+
+.hide{
+    display: none;
 }
 
 
@@ -69,6 +91,15 @@
 
     .material-icons {
         vertical-align: bottom;
+    }
+
+    .bookmark-button{
+        padding: 10px;
+        margin: 10px;
+    
+    }
+    .title{
+        margin-left: 10px;
     }
 
 

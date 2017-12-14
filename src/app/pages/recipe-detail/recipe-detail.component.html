@@ -1,9 +1,18 @@
-{{recipe | json}}
 <div class="row d-flex">
   <!-- Left side: title, directions, ingredients -->
   <div class="col s12 m6" *ngIf="recipe">
 
     <h2 class="title comfortaa">{{ recipe.name }}</h2>
+      <!-- Right side: image -->
+    <div class="add-bookmark" *ngIf="user">
+      <button class="yellow bookmark-button comfortaa" (click)="addBookmark(recipe._id, $event)">Bookmark me! <i class="material-icons ">star_border</i></button>
+    </div>
+
+    <div class="delete-bookmark hide" *ngIf="user">
+      <button class="yellow bookmark-button comfortaa" (click)="deleteBookmark(recipe._id, $event)">I'm a bookmark! <i class="material-icons ">star</i></button>
+    </div>
+
+
     <div class="text">
       <div class="recipe-atributes-wrapper">
         <span class="characteristics">
@@ -31,10 +40,7 @@
     </div>
   </div>
 
-  <!-- Right side: image -->
-  <div *ngIf="user">
-    <button (click)="addBookmark(recipe._id)">Bookmark this recipe</button>
-  </div>
+
 
   <div class="col s12 m6" *ngIf="recipe">
     <img [src]="recipe.picture" class="pic" alt="recipe-img">
