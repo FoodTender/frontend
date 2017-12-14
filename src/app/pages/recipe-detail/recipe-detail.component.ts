@@ -39,30 +39,31 @@ export class RecipeDetailComponent implements OnInit {
       .subscribe((recipe) => {
         this.recipe = recipe;
       });
-
-    // $('.delete-bookmarked').hide();
-    // $('.delete-bookmarked').click();
-
   }
 
-  addBookmark(event) {
-    console.log('recipeId: ', this.recipeId);
-
+  addBookmark() {
     this.bookmarkService.addBookmark(this.recipeId)
-      .subscribe((recipe) => {
-        this.recipe = recipe;
+      .subscribe(() => this.user.bookmarks.push(this.recipeId));
+    //   $('.bookmark-btn').append(`<div class="add-bookmark" *ngIf="user.bookmarks.indexOf(recipe._id) === -1">
+    //   <button class="bookmark-button comfortaa" (click)="addBookmark()">Bookmark me!
+    //     <i class="material-icons">star_border</i>
+    //   </button>
+    // </div>`);
+  }
+
+  deleteBookmark() {
+    //   $('.bookmark-btn').append(`<div class="delete-bookmark">
+    //   <button class="no-bookmark-button comfortaa" (click)="deleteBookmark()">I'm a bookmark!
+    //     <i class="material-icons">star</i>
+    //   </button>
+    // </div>`);
+
+    // $('.add-bookmark').css('position', 'absolute');
+    this.bookmarkService.removeBoomark(this.recipeId)
+      .subscribe(() => {
+        const index = this.user.bookmarks.indexOf(this.recipeId);
+        this.user.bookmarks.splice(index, 1);
       });
-    $('.delete-bookmark').removeClass('hide');
-    $(event.target).hide();
   }
-
-  deleteBookmark(recipeId, event) {
-    console.log(event.target);
-    $('.delete-bookmark').addClass('hide');
-    $('.add-bookmark').show();
-  }
-
-
-
 }
 

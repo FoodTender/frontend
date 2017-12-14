@@ -23,5 +23,11 @@ export class BookmarkService {
       .map((res: Response) => res.json());
   }
 
+  removeBoomark(recipeId) {
+    options.withCredentials = true;
+    return this.http.delete(`${baseUrl}/bookmarks/${recipeId}/remove`, options)
+      .map((res: Response) => res.json());
+  }
+
 }
 
